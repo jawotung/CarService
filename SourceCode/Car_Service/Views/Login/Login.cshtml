@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Login | Car Repair System</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+    <link rel="icon" href="~/Content/assets/img/logo/favicon.ico" type="image/x-icon">
+
+
+    @Styles.Render("~/Login-CSS")
+
+    <link href="~/Content/assets/css/default/theme/black.css" rel="stylesheet" aid="theme" />
+    <style>
+        .theme-panel.theme-panel-lg .theme-collapse-btn {
+            top: 15px;
+        }
+
+        .login.login-with-news-feed .login-header {
+            width: 100%;
+            padding: 100px 60px 0px 60px;
+        }
+
+        .parsley-errors-list > li {
+            text-align: left !important;
+        }
+    </style>
+</head>
+<body class="pace-top bg-white" id="body">
+    <div id="page-loader" class="fade show"><span class="spinner"></span></div>
+    <div id="loading_modal" class="modal loading_modal" data-backdrop="static">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <img src="~/Content/assets/img/ajax-loader.gif" height="100" class="block-centered">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="page-container" class="fade">
+        <div class="login login-v1">
+            <div>
+                <div class="login-container">
+
+                    <div class="login-header">
+                        <div class="brand">
+                            <span>
+                                <span class="logo"></span>
+                            </span>
+                            <small><b>Car Repair System</b></small>
+                        </div>
+                        <div class="icon">
+                            <i class="fa fa-car text-black"></i>
+                        </div>
+                    </div>
+
+
+                    <div class="login-body">
+
+                        <div class="login-content" style="background-color: #182929">
+                            <form id="frmLogin" class="margin-bottom-0" data-parsley-validate>
+                                @Html.AntiForgeryToken()
+                                <div class="form-group m-b-20">
+                                    <input type="text" name="WorkerID" id="WorkerID" class="form-control form-control-lg " placeholder="CompanyCode-WorkerID" required="">
+                                </div>
+                                <div class="form-group m-b-20">
+                                    <input type="password" name="Password" id="Password" class="form-control form-control-lg" placeholder="Password" required="">
+                                </div>
+                                <div class="login-buttons">
+                                    <button type="submit" class="btn btn-success btn-block btn-lg">
+                                        <span class="btnLabel" id="btnLogin"> LOGIN</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    @Scripts.Render("~/Login-JS")
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+</body>
+</html>

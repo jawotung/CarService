@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SakuraModelStoreContainer" CdmEntityContainer="SakuraEntities">
+    <EntitySetMapping Name="mBranches">
+      <EntityTypeMapping TypeName="SakuraModel.mBranch">
+        <MappingFragment StoreEntitySet="mBranch">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchAbbreviation" ColumnName="BranchAbbreviation" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Barangay" ColumnName="Barangay" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="TEL2" ColumnName="TEL2" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RepENFN" ColumnName="RepENFN" />
+          <ScalarProperty Name="RepENMN" ColumnName="RepENMN" />
+          <ScalarProperty Name="RepENLN" ColumnName="RepENLN" />
+          <ScalarProperty Name="RepENSuffix" ColumnName="RepENSuffix" />
+          <ScalarProperty Name="RepJP" ColumnName="RepJP" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mClasses">
+      <EntityTypeMapping TypeName="SakuraModel.mClass">
+        <MappingFragment StoreEntitySet="mClass">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="DetailsNo" ColumnName="DetailsNo" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="AssistantTeacherID" ColumnName="AssistantTeacherID" />
+          <ScalarProperty Name="JapaneseTeacherID" ColumnName="JapaneseTeacherID" />
+          <ScalarProperty Name="NoOfStudents" ColumnName="NoOfStudents" />
+          <ScalarProperty Name="OrientationStartDay" ColumnName="OrientationStartDay" />
+          <ScalarProperty Name="OrientationEndDay" ColumnName="OrientationEndDay" />
+          <ScalarProperty Name="CourseStartDay" ColumnName="CourseStartDay" />
+          <ScalarProperty Name="ClassEndDay" ColumnName="ClassEndDay" />
+          <ScalarProperty Name="ApplicationStartDate" ColumnName="ApplicationStartDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mCompanies">
+      <EntityTypeMapping TypeName="SakuraModel.mCompany">
+        <MappingFragment StoreEntitySet="mCompany">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="CompanyAbbreviation" ColumnName="CompanyAbbreviation" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Barangay" ColumnName="Barangay" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RepresentativeNameJP" ColumnName="RepresentativeNameJP" />
+          <ScalarProperty Name="RepresentativeNameEN" ColumnName="RepresentativeNameEN" />
+          <ScalarProperty Name="POEALicenseNumber" ColumnName="POEALicenseNumber" />
+          <ScalarProperty Name="DateOfExpiry" ColumnName="DateOfExpiry" />
+          <ScalarProperty Name="ApplicationStartDate" ColumnName="ApplicationStartDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="POEACertificate" ColumnName="POEACertificate" />
+          <ScalarProperty Name="RepresentativePassport" ColumnName="RepresentativePassport" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mDepartments">
+      <EntityTypeMapping TypeName="SakuraModel.mDepartment">
+        <MappingFragment StoreEntitySet="mDepartment">
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mDivisions">
+      <EntityTypeMapping TypeName="SakuraModel.mDivision">
+        <MappingFragment StoreEntitySet="mDivision">
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="DepartmentCode" ColumnName="DepartmentCode" />
+          <ScalarProperty Name="DivisionCode" ColumnName="DivisionCode" />
+          <ScalarProperty Name="DivisionName" ColumnName="DivisionName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mEmployees">
+      <EntityTypeMapping TypeName="SakuraModel.mEmployee">
+        <MappingFragment StoreEntitySet="mEmployee">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mExams">
+      <EntityTypeMapping TypeName="SakuraModel.mExam">
+        <MappingFragment StoreEntitySet="mExam">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ExamID" ColumnName="ExamID" />
+          <ScalarProperty Name="ExamName" ColumnName="ExamName" />
+          <ScalarProperty Name="NoQuestions" ColumnName="NoQuestions" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="ImplementationDate" ColumnName="ImplementationDate" />
+          <ScalarProperty Name="ApplicablePeriodStartDate" ColumnName="ApplicablePeriodStartDate" />
+          <ScalarProperty Name="EndDateApplicationPeriod" ColumnName="EndDateApplicationPeriod" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mGenerals">
+      <EntityTypeMapping TypeName="SakuraModel.mGeneral">
+        <MappingFragment StoreEntitySet="mGeneral">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mJobHistories">
+      <EntityTypeMapping TypeName="SakuraModel.mJobHistory">
+        <MappingFragment StoreEntitySet="mJobHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JobCategory" ColumnName="JobCategory" />
+          <ScalarProperty Name="JobCode" ColumnName="JobCode" />
+          <ScalarProperty Name="JobName" ColumnName="JobName" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mJobSSWs">
+      <EntityTypeMapping TypeName="SakuraModel.mJobSSW">
+        <MappingFragment StoreEntitySet="mJobSSW">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Codes" ColumnName="Codes" />
+          <ScalarProperty Name="SubCodes" ColumnName="SubCodes" />
+          <ScalarProperty Name="Categories" ColumnName="Categories" />
+          <ScalarProperty Name="JobCategories" ColumnName="JobCategories" />
+          <ScalarProperty Name="Operations" ColumnName="Operations" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="WorkName" ColumnName="WorkName" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mJobTITs">
+      <EntityTypeMapping TypeName="SakuraModel.mJobTIT">
+        <MappingFragment StoreEntitySet="mJobTIT">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Field" ColumnName="Field" />
+          <ScalarProperty Name="JobsEngageIn" ColumnName="JobsEngageIn" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mLanguages">
+      <EntityTypeMapping TypeName="SakuraModel.mLanguage">
+        <MappingFragment StoreEntitySet="mLanguage">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="HTMLID" ColumnName="HTMLID" />
+          <ScalarProperty Name="CallCode" ColumnName="CallCode" />
+          <ScalarProperty Name="Messege" ColumnName="Messege" />
+          <ScalarProperty Name="PageLabel" ColumnName="PageLabel" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mPages">
+      <EntityTypeMapping TypeName="SakuraModel.mPage">
+        <MappingFragment StoreEntitySet="mPages">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="GroupLabel" ColumnName="GroupLabel" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="PageLabel" ColumnName="PageLabel" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="HasSub" ColumnName="HasSub" />
+          <ScalarProperty Name="ParentMenu" ColumnName="ParentMenu" />
+          <ScalarProperty Name="ParentOrder" ColumnName="ParentOrder" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mSchools">
+      <EntityTypeMapping TypeName="SakuraModel.mSchool">
+        <MappingFragment StoreEntitySet="mSchool">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SchoolID" ColumnName="SchoolID" />
+          <ScalarProperty Name="SchoolName" ColumnName="SchoolName" />
+          <ScalarProperty Name="SchoolAbbreviation" ColumnName="SchoolAbbreviation" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Barangay" ColumnName="Barangay" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RepresentativeNameJP" ColumnName="RepresentativeNameJP" />
+          <ScalarProperty Name="RepresentativeNameEN" ColumnName="RepresentativeNameEN" />
+          <ScalarProperty Name="TESDALicenseNumber" ColumnName="TESDALicenseNumber" />
+          <ScalarProperty Name="DateOfExpiry" ColumnName="DateOfExpiry" />
+          <ScalarProperty Name="ApplicationStartDate" ColumnName="ApplicationStartDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="TESDACertificate" ColumnName="TESDACertificate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mTeachers">
+      <EntityTypeMapping TypeName="SakuraModel.mTeacher">
+        <MappingFragment StoreEntitySet="mTeacher">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TeacherID" ColumnName="TeacherID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Skill" ColumnName="Skill" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mTypes">
+      <EntityTypeMapping TypeName="SakuraModel.mType">
+        <MappingFragment StoreEntitySet="mTypes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mUserPageAccesses">
+      <EntityTypeMapping TypeName="SakuraModel.mUserPageAccess">
+        <MappingFragment StoreEntitySet="mUserPageAccess">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PageID" ColumnName="PageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReadAndWrite" ColumnName="ReadAndWrite" />
+          <ScalarProperty Name="Delete" ColumnName="Delete" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tTroubleMgtInfoes">
+      <EntityTypeMapping TypeName="SakuraModel.tTroubleMgtInfo">
+        <MappingFragment StoreEntitySet="tTroubleMgtInfo">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TroubleNo" ColumnName="TroubleNo" />
+          <ScalarProperty Name="ReceptionDate" ColumnName="ReceptionDate" />
+          <ScalarProperty Name="Receptionist" ColumnName="Receptionist" />
+          <ScalarProperty Name="TroubleClassification" ColumnName="TroubleClassification" />
+          <ScalarProperty Name="TroubleContent" ColumnName="TroubleContent" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mTIOs">
+      <EntityTypeMapping TypeName="SakuraModel.mTIO">
+        <MappingFragment StoreEntitySet="mTIO">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="ExpirationDateFrom" ColumnName="ExpirationDateFrom" />
+          <ScalarProperty Name="ExpirationDateTo" ColumnName="ExpirationDateTo" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="NoOfApplicants" ColumnName="NoOfApplicants" />
+          <ScalarProperty Name="CurrentlyRecruitingNo" ColumnName="CurrentlyRecruitingNo" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mVariousCodes">
+      <EntityTypeMapping TypeName="SakuraModel.mVariousCode">
+        <MappingFragment StoreEntitySet="mVariousCode">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CodeName" ColumnName="CodeName" />
+          <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ApplicationStartDate" ColumnName="ApplicationStartDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Branch_Delete" FunctionName="SakuraModel.Store.Branch_Delete" />
+    <FunctionImportMapping FunctionImportName="Branch_Get" FunctionName="SakuraModel.Store.Branch_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SakuraModel.Branch_Get_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="BranchAbbreviation" ColumnName="BranchAbbreviation" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Barangay" ColumnName="Barangay" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="TEL2" ColumnName="TEL2" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RepENFN" ColumnName="RepENFN" />
+          <ScalarProperty Name="RepENMN" ColumnName="RepENMN" />
+          <ScalarProperty Name="RepENLN" ColumnName="RepENLN" />
+          <ScalarProperty Name="RepENSuffix" ColumnName="RepENSuffix" />
+          <ScalarProperty Name="RepJP" ColumnName="RepJP" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Branch_GetList" FunctionName="SakuraModel.Store.Branch_GetList" />
+    <FunctionImportMapping FunctionImportName="Branch_InsertUpdate" FunctionName="SakuraModel.Store.Branch_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="Class_Delete" FunctionName="SakuraModel.Store.Class_Delete" />
+    <FunctionImportMapping FunctionImportName="Class_GetList" FunctionName="SakuraModel.Store.Class_GetList" />
+    <FunctionImportMapping FunctionImportName="Class_InsertUpdate" FunctionName="SakuraModel.Store.Class_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="Company_Delete" FunctionName="SakuraModel.Store.Company_Delete" />
+    <FunctionImportMapping FunctionImportName="Company_GetList" FunctionName="SakuraModel.Store.Company_GetList" />
+    <FunctionImportMapping FunctionImportName="Company_InsertUpdate" FunctionName="SakuraModel.Store.Company_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="Department_InsertUpdate" FunctionName="SakuraModel.Store.Department_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="Division_InsertUpdate" FunctionName="SakuraModel.Store.Division_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="Employee_Delete" FunctionName="SakuraModel.Store.Employee_Delete" />
+    <FunctionImportMapping FunctionImportName="Employee_Get" FunctionName="SakuraModel.Store.Employee_Get">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SakuraModel.Employee_Get_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Employee_GetList" FunctionName="SakuraModel.Store.Employee_GetList" />
+    <FunctionImportMapping FunctionImportName="Employee_InsertUpdate" FunctionName="SakuraModel.Store.Employee_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="Employee_Login" FunctionName="SakuraModel.Store.Employee_Login">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SakuraModel.Employee_Login_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Exam_Delete" FunctionName="SakuraModel.Store.Exam_Delete" />
+    <FunctionImportMapping FunctionImportName="Exam_GetList" FunctionName="SakuraModel.Store.Exam_GetList" />
+    <FunctionImportMapping FunctionImportName="Exam_InsertUpdate" FunctionName="SakuraModel.Store.Exam_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="General_Delete" FunctionName="SakuraModel.Store.General_Delete" />
+    <FunctionImportMapping FunctionImportName="General_InsertUpdate" FunctionName="SakuraModel.Store.General_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="JobSSW_Delete" FunctionName="SakuraModel.Store.JobSSW_Delete" />
+    <FunctionImportMapping FunctionImportName="JobSSW_GetList" FunctionName="SakuraModel.Store.JobSSW_GetList" />
+    <FunctionImportMapping FunctionImportName="JobSSW_InsertUpdate" FunctionName="SakuraModel.Store.JobSSW_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="JobTIT_Delete" FunctionName="SakuraModel.Store.JobTIT_Delete" />
+    <FunctionImportMapping FunctionImportName="JobTIT_GetList" FunctionName="SakuraModel.Store.JobTIT_GetList" />
+    <FunctionImportMapping FunctionImportName="JobTIT_InsertUpdate" FunctionName="SakuraModel.Store.JobTIT_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="School_Delete" FunctionName="SakuraModel.Store.School_Delete" />
+    <FunctionImportMapping FunctionImportName="School_GetList" FunctionName="SakuraModel.Store.School_GetList" />
+    <FunctionImportMapping FunctionImportName="School_InsertUpdate" FunctionName="SakuraModel.Store.School_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="Teacher_Delete" FunctionName="SakuraModel.Store.Teacher_Delete" />
+    <FunctionImportMapping FunctionImportName="Teacher_GetList" FunctionName="SakuraModel.Store.Teacher_GetList" />
+    <FunctionImportMapping FunctionImportName="Teacher_InsertUpdate" FunctionName="SakuraModel.Store.Teacher_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="TIO_Delete" FunctionName="SakuraModel.Store.TIO_Delete" />
+    <FunctionImportMapping FunctionImportName="TIO_GetList" FunctionName="SakuraModel.Store.TIO_GetList" />
+    <FunctionImportMapping FunctionImportName="TIO_InsertUpdate" FunctionName="SakuraModel.Store.TIO_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="TroubleMgtInfo_GetList" FunctionName="SakuraModel.Store.TroubleMgtInfo_GetList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SakuraModel.TroubleMgtInfo_GetList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TroubleNo" ColumnName="TroubleNo" />
+          <ScalarProperty Name="ReceptionDate" ColumnName="ReceptionDate" />
+          <ScalarProperty Name="Receptionist" ColumnName="Receptionist" />
+          <ScalarProperty Name="TroubleClassification" ColumnName="TroubleClassification" />
+          <ScalarProperty Name="TroubleContent" ColumnName="TroubleContent" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Type_Delete" FunctionName="SakuraModel.Store.Type_Delete" />
+    <FunctionImportMapping FunctionImportName="Type_InsertUpdate" FunctionName="SakuraModel.Store.Type_InsertUpdate" />
+    <FunctionImportMapping FunctionImportName="UserPageAccess_GetAccessList" FunctionName="SakuraModel.Store.UserPageAccess_GetAccessList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SakuraModel.UserPageAccess_GetAccessList_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="GroupLabel" ColumnName="GroupLabel" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="PageLabel" ColumnName="PageLabel" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="HasSub" ColumnName="HasSub" />
+          <ScalarProperty Name="ParentMenu" ColumnName="ParentMenu" />
+          <ScalarProperty Name="ParentOrder" ColumnName="ParentOrder" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="ID1" ColumnName="ID1" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PageID" ColumnName="PageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ReadAndWrite" ColumnName="ReadAndWrite" />
+          <ScalarProperty Name="Delete" ColumnName="Delete" />
+          <ScalarProperty Name="CreateID1" ColumnName="CreateID1" />
+          <ScalarProperty Name="CreateDate1" ColumnName="CreateDate1" />
+          <ScalarProperty Name="UpdateID1" ColumnName="UpdateID1" />
+          <ScalarProperty Name="UpdateDate1" ColumnName="UpdateDate1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UserPageAccess_INSERT_UPDATE" FunctionName="SakuraModel.Store.UserPageAccess_INSERT_UPDATE" />
+    <FunctionImportMapping FunctionImportName="UserPageAccess_Validate" FunctionName="SakuraModel.Store.UserPageAccess_Validate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SakuraModel.UserPageAccess_Validate_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Languages" ColumnName="Languages" />
+          <ScalarProperty Name="GroupLabel" ColumnName="GroupLabel" />
+          <ScalarProperty Name="PageName" ColumnName="PageName" />
+          <ScalarProperty Name="PageLabel" ColumnName="PageLabel" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="HasSub" ColumnName="HasSub" />
+          <ScalarProperty Name="ParentMenu" ColumnName="ParentMenu" />
+          <ScalarProperty Name="ParentOrder" ColumnName="ParentOrder" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreateID" ColumnName="CreateID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="UpdateID" ColumnName="UpdateID" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="ReadAndWrite" ColumnName="ReadAndWrite" />
+          <ScalarProperty Name="DeleteEnabled" ColumnName="DeleteEnabled" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VariousCode_Delete" FunctionName="SakuraModel.Store.VariousCode_Delete" />
+    <FunctionImportMapping FunctionImportName="VariousCode_GetList" FunctionName="SakuraModel.Store.VariousCode_GetList" />
+    <FunctionImportMapping FunctionImportName="VariousCode_InsertUpdate" FunctionName="SakuraModel.Store.VariousCode_InsertUpdate" />
+  </EntityContainerMapping>
+</Mapping>

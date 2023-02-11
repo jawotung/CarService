@@ -1,0 +1,55 @@
+﻿/*body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}*/
+
+/* Set padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+/*.dl-horizontal dt {
+    white-space: normal;
+}*/
+
+/*.wrap-border {
+    border: 1px solid #e7ecf1 !important;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 2px 3px 2px rgb(0 0 0 / 3%);
+    -moz-box-shadow: 0 2px 3px 2px rgb(0 0 0 / 3%);
+    box-shadow: 0 2px 3px 2px rgb(0 0 0 / 3%);
+    padding-top: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}*/
+
+
+.icons8-interview {
+    width: 24px !important;
+    height: 24px !important;
+    margin-right: 2px !important;
+    background-image: url(/Content/assets/img/icons8-interview.svg);
+    background-size: 100%;
+}
+.modal-body {
+    background-color: white;
+}
+
+.form-label {
+    color: gray !important;
+    font-weight: normal !important;
+}
+.panWrapper {
+    z-index: 10000000000 !important;
+}
+
+h5 {
+    overflow-wrap: break-word;
+}
+.decimal-format{
+    text-align:right;
+}

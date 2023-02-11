@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<License Key="XlLIYQEAfQLAW42loIRQBCRpXWikhNFI7HuPs3iSJUB3qCcKJNcbFtCSN9ENomFZIiyeE0DzR8LU9+8s0PklVdgTmQmIaUHXGo0mzR5oQlPOjmoKgtHvOlQ/6k74NTLDuYP+uz3Wikf2EE0I+D4xMAJoxs8mwVzNA5jKVx/1bM1OM+8tppk4TvRWQ78gwCHLd1Z1TsOc6frWKA3jnvCcOgZEsSNNoHtHySOY0YI3eqFq95LwTVbIaCSw3dsNnveA25WikasRW3vz+AlzKyiyNnHbvNtK/Giy6pxSJf61swcIcggvyTCz4q4HASP57iKTf2zH35KwkIfoGVadMr9SZ2t15Tus0ty92GiuNzs5rwjerY+r49UIqLbqrioatFF4UVatsa/7nP7XzXVLXB5EUYZRar4n1vE9byCNL2VzrSHZ/4qXwMN+yY3u3ibFU+T1hycHrwi4wYjj+XpjKjxOS4Cd4dNzvS4rfBrA8pRseeZkHOGnv+NN7wW/wouhfYy7OLchmP6GLbEo8TjGFjyjD7g9BhxK12Jvf27Ha8egJ2u+soxv76MUb0D4/iTiV5A94OPopUYFCxHF1vZLT2pxTi8vJTKiDScgq7VE17WORdOChF57mtNQKwiUCKqLyxpIxEvNZv1KUO8S2bp2D5vtG+1u6xanbaPqPqVIw5wE6BJaihhy1ewScqaJ0XMrbAQDEGuam7s4aQvcmU2/96XQIx0orM+ASBc8mOszSrVaqRiN6MJc0qgsaP+UaTIcYfN3hv3Rp/XVwBv1QaRm5nhQ5NT8sqFQNfLoqpa11C9QSFwfnzXSaLP0diNiliU3cjzRHnyNvFfwdELtfXXysqAbscptfjOM3mcPNICAqjRAUNCLFrcDlZMelUgqkGA/cOXYXRxdy3cRnO4U1oe71EiUGDDA0NIQqKI4abaAzR+phUfmtoZBdvzcZS27gRLuRIRSho6u+SOE6tYTrPjL/xt6zy7raL65ie/uNFdNNgKaCNdJmtgHl8v+/tplFbF+nEeUwZo+vuujF4gGL2hZGSGCTOxm7lDBGg2cnW3yh2TNVREPqzo8LR5ZTlO9lRTA8J4hY9JTBLqbXMlVOGYxbaAMaycgUh1CXkM7U2vv03umyUnl3P4bKtUWixTavdyjq5PbQtsWynFVY8fP7XWUyGcJeKM4cyyOwFcR8HPlNxDW8kFGLiHmWMMp4ZgbWM9mweFwNPJKvC0oq3JJLmHPkhsiuFDdOt9flur/26qfgsxae3CXsimnDJUDNe33nUoycv9QkGtFMCGbsM8yJug1M8TBZWE8OOa/sMQo4ciWLXDcVCQtyDjAQ0B1pGjEpItXuaOdeOphW+x5zGlEDSZnhzvljWDh+MSsfTVjwlm0yNpVAMNYbsN8NjwV5NwYkVTAg4U9Q2PbwFD44hXyIz2nVIIrQaaIHOUBsnCmaXV5ojBtj36Whs5N2s3cNbRJNX4xut3eiORWwOqUXS/U1B4I4Q9aXIaUxoFgJqSi4BzlvmR0ZIDA0plHMZmMzuFxo1nhpksmLufB5KkQRWcy0ScE/GMKky4feLs+lZQ5EdLs894lF06+5BmmVw5iwNP2qcjeqX0m8GtWXLz5T658+o0QYJjRfyRSiac+LolK5ppguJ+pRYuCt5NIrTTDQSL0o2hLILX7" Version="1.3">
+    <Type>Runtime</Type>
+    <Username>Seiko IT Solution Philippines, Inc.</Username>
+    <Email>m-furusa@seiko-denki.co.jp</Email>
+    <Organization>Seiko IT Solution Philippines, Inc.</Organization>
+    <LicensedDate>2022-11-12T00:00:00Z</LicensedDate>
+    <ExpiredDate>2023-11-12T00:00:00Z</ExpiredDate>
+    <Products>
+        <Product>
+            <Name>Spire.XLS Pro Edition</Name>
+            <Version>12.10</Version>
+            <Subscription>
+                <Name>Developer OEM Subscription</Name>
+                <NumberOfPermittedDeveloper>1</NumberOfPermittedDeveloper>
+                <NumberOfPermittedSite>2147483647</NumberOfPermittedSite>
+            </Subscription>
+        </Product>
+    </Products>
+    <Issuer>
+        <Name>e-iceblue</Name>
+        <Email>sales@e-iceblue.com</Email>
+        <Url>http://www.e-iceblue.com</Url>
+    </Issuer>
+</License>

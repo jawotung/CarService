@@ -1,0 +1,1057 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SakuraModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="mBranch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="Int32" />
+    <Property Name="BranchID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="BranchName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="BranchAbbreviation" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Barangay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TEL" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="TEL2" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <Property Name="FAX" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RepENFN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RepENMN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RepENLN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RepENSuffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RepJP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mClass">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherID" Type="Int32" />
+    <Property Name="DetailsNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Class" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AssistantTeacherID" Type="Int32" />
+    <Property Name="JapaneseTeacherID" Type="Int32" />
+    <Property Name="NoOfStudents" Type="Int32" />
+    <Property Name="OrientationStartDay" Type="DateTime" Precision="3" />
+    <Property Name="OrientationEndDay" Type="DateTime" Precision="3" />
+    <Property Name="CourseStartDay" Type="DateTime" Precision="3" />
+    <Property Name="ClassEndDay" Type="DateTime" Precision="3" />
+    <Property Name="ApplicationStartDate" Type="DateTime" Precision="3" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mCompany">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyAbbreviation" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Barangay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TEL" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="FAX" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RepresentativeNameJP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RepresentativeNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="POEALicenseNumber" Type="Int32" />
+    <Property Name="DateOfExpiry" Type="DateTime" Precision="3" />
+    <Property Name="ApplicationStartDate" Type="DateTime" Precision="3" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="POEACertificate" Type="Boolean" />
+    <Property Name="RepresentativePassport" Type="Boolean" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mDepartment">
+    <Key>
+      <PropertyRef Name="BranchID" />
+      <PropertyRef Name="DepartmentCode" />
+    </Key>
+    <Property Name="BranchID" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DepartmentName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mDivision">
+    <Key>
+      <PropertyRef Name="BranchID" />
+      <PropertyRef Name="DepartmentCode" />
+      <PropertyRef Name="DivisionCode" />
+    </Key>
+    <Property Name="BranchID" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DivisionCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DivisionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mEmployee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nickname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Suffix" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BranchID" Type="Int32" />
+    <Property Name="DepartmentID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mExam">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExamID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ExamName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="NoQuestions" Type="Int32" />
+    <Property Name="Score" Type="Int32" />
+    <Property Name="ImplementationDate" Type="DateTime" Precision="3" />
+    <Property Name="ApplicablePeriodStartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDateApplicationPeriod" Type="DateTime" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mGeneral">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeID" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreateID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mJobHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobCategory" Type="Int32" Nullable="false" />
+    <Property Name="JobCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateID" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mJobSSW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codes" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SubCodes" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Categories" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JobCategories" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Operations" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Field" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="WorkName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mJobTIT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Field" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="JobsEngageIn" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Industry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mLanguage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HTMLID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CallCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Messege" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PageLabel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Languages" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="mPage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Languages" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="GroupLabel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PageLabel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="HasSub" Type="Boolean" Nullable="false" />
+    <Property Name="ParentMenu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ParentOrder" Type="Int32" Nullable="false" />
+    <Property Name="Order" Type="Int32" Nullable="false" />
+    <Property Name="Icon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreateID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mSchool">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolAbbreviation" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+    <Property Name="ZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Region" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Province" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Barangay" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="TEL" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="FAX" Type="String" MaxLength="18" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="RepresentativeNameJP" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RepresentativeNameEN" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TESDALicenseNumber" Type="Int32" />
+    <Property Name="DateOfExpiry" Type="DateTime" Precision="3" />
+    <Property Name="ApplicationStartDate" Type="DateTime" Precision="3" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TESDACertificate" Type="Boolean" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mTeacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nickname" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Skill" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreateID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="mUserPageAccess">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="PageID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="ReadAndWrite" Type="Boolean" Nullable="false" />
+    <Property Name="Delete" Type="Boolean" />
+    <Property Name="CreateID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="tTroubleMgtInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TroubleNo" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ReceptionDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Receptionist" Type="Int32" Nullable="false" />
+    <Property Name="TroubleClassification" Type="Int32" Nullable="false" />
+    <Property Name="TroubleContent" Type="Int32" Nullable="false" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateID" Type="Int32" Nullable="false" />
+    <Property Name="UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mTIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="JobID" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ExpirationDateFrom" Type="DateTime" Precision="3" />
+    <Property Name="ExpirationDateTo" Type="DateTime" Precision="3" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="NoOfApplicants" Type="Int32" />
+    <Property Name="CurrentlyRecruitingNo" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="mVariousCode">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CodeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ItemCode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationStartDate" Type="DateTime" Precision="3" />
+    <Property Name="Remarks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateID" Type="Int32" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateID" Type="Int32" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityContainer Name="SakuraEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="mBranches" EntityType="Self.mBranch" />
+    <EntitySet Name="mClasses" EntityType="Self.mClass" />
+    <EntitySet Name="mCompanies" EntityType="Self.mCompany" />
+    <EntitySet Name="mDepartments" EntityType="Self.mDepartment" />
+    <EntitySet Name="mDivisions" EntityType="Self.mDivision" />
+    <EntitySet Name="mEmployees" EntityType="Self.mEmployee" />
+    <EntitySet Name="mExams" EntityType="Self.mExam" />
+    <EntitySet Name="mGenerals" EntityType="Self.mGeneral" />
+    <EntitySet Name="mJobHistories" EntityType="Self.mJobHistory" />
+    <EntitySet Name="mJobSSWs" EntityType="Self.mJobSSW" />
+    <EntitySet Name="mJobTITs" EntityType="Self.mJobTIT" />
+    <EntitySet Name="mLanguages" EntityType="Self.mLanguage" />
+    <EntitySet Name="mPages" EntityType="Self.mPage" />
+    <EntitySet Name="mSchools" EntityType="Self.mSchool" />
+    <EntitySet Name="mTeachers" EntityType="Self.mTeacher" />
+    <EntitySet Name="mTypes" EntityType="Self.mType" />
+    <EntitySet Name="mUserPageAccesses" EntityType="Self.mUserPageAccess" />
+    <EntitySet Name="tTroubleMgtInfoes" EntityType="Self.tTroubleMgtInfo" />
+    <EntitySet Name="mTIOs" EntityType="Self.mTIO" />
+    <EntitySet Name="mVariousCodes" EntityType="Self.mVariousCode" />
+    <FunctionImport Name="Branch_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Branch_Get" ReturnType="Collection(SakuraModel.Branch_Get_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Branch_GetList">
+      <Parameter Name="BranchID" Mode="In" Type="String" />
+      <Parameter Name="BranchName" Mode="In" Type="String" />
+      <Parameter Name="BranchAbbreviation" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Barangay" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="TEL" Mode="In" Type="String" />
+      <Parameter Name="FAX" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="CompanyID" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Branch_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyID" Mode="In" Type="Int32" />
+      <Parameter Name="BranchID" Mode="In" Type="String" />
+      <Parameter Name="BranchName" Mode="In" Type="String" />
+      <Parameter Name="BranchAbbreviation" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Barangay" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="TEL" Mode="In" Type="String" />
+      <Parameter Name="TEL2" Mode="In" Type="String" />
+      <Parameter Name="FAX" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="RepENFN" Mode="In" Type="String" />
+      <Parameter Name="RepENMN" Mode="In" Type="String" />
+      <Parameter Name="RepENLN" Mode="In" Type="String" />
+      <Parameter Name="RepENSuffix" Mode="In" Type="String" />
+      <Parameter Name="RepJP" Mode="In" Type="String" />
+      <Parameter Name="Position" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Class_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Class_GetList">
+      <Parameter Name="Teacher" Mode="In" Type="String" />
+      <Parameter Name="AssistantTeacher" Mode="In" Type="String" />
+      <Parameter Name="JapaneseTeacher" Mode="In" Type="String" />
+      <Parameter Name="OrientationStartDay" Mode="In" Type="String" />
+      <Parameter Name="OrientationEndDay" Mode="In" Type="String" />
+      <Parameter Name="CourseStartDay" Mode="In" Type="String" />
+      <Parameter Name="ClassEndDay" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Class_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="TeacherID" Mode="In" Type="Int32" />
+      <Parameter Name="DetailsNo" Mode="In" Type="String" />
+      <Parameter Name="Class" Mode="In" Type="String" />
+      <Parameter Name="AssistantTeacherID" Mode="In" Type="Int32" />
+      <Parameter Name="NoOfStudents" Mode="In" Type="Int32" />
+      <Parameter Name="OrientationStartDay" Mode="In" Type="DateTime" />
+      <Parameter Name="OrientationEndDay" Mode="In" Type="DateTime" />
+      <Parameter Name="CourseStartDay" Mode="In" Type="DateTime" />
+      <Parameter Name="ClassEndDay" Mode="In" Type="DateTime" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Company_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Company_GetList">
+      <Parameter Name="CompanyID" Mode="In" Type="String" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="CompanyAbbreviation" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Barangay" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="TEL" Mode="In" Type="String" />
+      <Parameter Name="FAX" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameJP" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameEN" Mode="In" Type="String" />
+      <Parameter Name="POEALicenseNumber" Mode="In" Type="String" />
+      <Parameter Name="DateOfExpiry" Mode="In" Type="String" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="POEACertificate" Mode="In" Type="String" />
+      <Parameter Name="RepresentativePassport" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Company_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyID" Mode="In" Type="String" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="CompanyAbbreviation" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Barangay" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="TEL" Mode="In" Type="String" />
+      <Parameter Name="FAX" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameJP" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameEN" Mode="In" Type="String" />
+      <Parameter Name="POEALicenseNumber" Mode="In" Type="Int32" />
+      <Parameter Name="DateOfExpiry" Mode="In" Type="DateTime" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="POEACertificate" Mode="In" Type="Boolean" />
+      <Parameter Name="RepresentativePassport" Mode="In" Type="Boolean" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Department_InsertUpdate">
+      <Parameter Name="BranchID" Mode="In" Type="Int32" />
+      <Parameter Name="DepartmentCode" Mode="In" Type="String" />
+      <Parameter Name="DepartmentName" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Division_InsertUpdate">
+      <Parameter Name="BranchID" Mode="In" Type="Int32" />
+      <Parameter Name="DepartmentCode" Mode="In" Type="String" />
+      <Parameter Name="DivisionCode" Mode="In" Type="String" />
+      <Parameter Name="DivisionName" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Employee_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Employee_Get" ReturnType="Collection(SakuraModel.Employee_Get_Result)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Employee_GetList">
+      <Parameter Name="EmployeeID" Mode="In" Type="String" />
+      <Parameter Name="FullName" Mode="In" Type="String" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Branch" Mode="In" Type="String" />
+      <Parameter Name="Company" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Employee_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="MiddleName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Nickname" Mode="In" Type="String" />
+      <Parameter Name="Suffix" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="Int32" />
+      <Parameter Name="DepartmentID" Mode="In" Type="String" />
+      <Parameter Name="BranchID" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Employee_Login" ReturnType="Collection(SakuraModel.Employee_Login_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Exam_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Exam_GetList">
+      <Parameter Name="ExamID" Mode="In" Type="String" />
+      <Parameter Name="ExamName" Mode="In" Type="String" />
+      <Parameter Name="NoQuestions" Mode="In" Type="String" />
+      <Parameter Name="Score" Mode="In" Type="String" />
+      <Parameter Name="ImplementationDate" Mode="In" Type="String" />
+      <Parameter Name="ApplicablePeriodStartDate" Mode="In" Type="String" />
+      <Parameter Name="EndDateApplicationPeriod" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Exam_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="ExamID" Mode="In" Type="String" />
+      <Parameter Name="ExamName" Mode="In" Type="String" />
+      <Parameter Name="NoQuestions" Mode="In" Type="Int32" />
+      <Parameter Name="Score" Mode="In" Type="Int32" />
+      <Parameter Name="ImplementationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ApplicablePeriodStartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDateApplicationPeriod" Mode="In" Type="DateTime" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="General_Delete">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="UpdateID" Mode="In" Type="String" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="General_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="TypeID" Mode="In" Type="Int32" />
+      <Parameter Name="Value" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="String" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+      <Parameter Name="EndMsg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="JobSSW_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="JobSSW_GetList">
+      <Parameter Name="Codes" Mode="In" Type="String" />
+      <Parameter Name="SubCodes" Mode="In" Type="String" />
+      <Parameter Name="Categories" Mode="In" Type="String" />
+      <Parameter Name="JobCategories" Mode="In" Type="String" />
+      <Parameter Name="Operations" Mode="In" Type="String" />
+      <Parameter Name="Field" Mode="In" Type="String" />
+      <Parameter Name="JobTitle" Mode="In" Type="String" />
+      <Parameter Name="WorkName" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="JobSSW_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Codes" Mode="In" Type="String" />
+      <Parameter Name="SubCodes" Mode="In" Type="String" />
+      <Parameter Name="Categories" Mode="In" Type="String" />
+      <Parameter Name="JobCategories" Mode="In" Type="String" />
+      <Parameter Name="Operations" Mode="In" Type="String" />
+      <Parameter Name="Field" Mode="In" Type="String" />
+      <Parameter Name="JobTitle" Mode="In" Type="String" />
+      <Parameter Name="WorkName" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="JobTIT_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="JobTIT_GetList">
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="Field" Mode="In" Type="String" />
+      <Parameter Name="JobsEngageIn" Mode="In" Type="String" />
+      <Parameter Name="Industry" Mode="In" Type="String" />
+      <Parameter Name="Occupation" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="JobTIT_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="Field" Mode="In" Type="String" />
+      <Parameter Name="JobsEngageIn" Mode="In" Type="String" />
+      <Parameter Name="Industry" Mode="In" Type="String" />
+      <Parameter Name="Occupation" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="School_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="School_GetList">
+      <Parameter Name="SchoolID" Mode="In" Type="String" />
+      <Parameter Name="SchoolName" Mode="In" Type="String" />
+      <Parameter Name="SchoolAbbreviation" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Barangay" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="TEL" Mode="In" Type="String" />
+      <Parameter Name="FAX" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameJP" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameEN" Mode="In" Type="String" />
+      <Parameter Name="TESDALicenseNumber" Mode="In" Type="String" />
+      <Parameter Name="DateOfExpiry" Mode="In" Type="String" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="School_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="SchoolID" Mode="In" Type="String" />
+      <Parameter Name="SchoolName" Mode="In" Type="String" />
+      <Parameter Name="SchoolAbbreviation" Mode="In" Type="String" />
+      <Parameter Name="ZipCode" Mode="In" Type="String" />
+      <Parameter Name="Region" Mode="In" Type="String" />
+      <Parameter Name="Province" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="Barangay" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="TEL" Mode="In" Type="String" />
+      <Parameter Name="FAX" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameJP" Mode="In" Type="String" />
+      <Parameter Name="RepresentativeNameEN" Mode="In" Type="String" />
+      <Parameter Name="TESDALicenseNumber" Mode="In" Type="Int32" />
+      <Parameter Name="DateOfExpiry" Mode="In" Type="DateTime" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="TESDACertificate" Mode="In" Type="Boolean" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Teacher_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Teacher_GetList">
+      <Parameter Name="TeacherID" Mode="In" Type="String" />
+      <Parameter Name="FullName" Mode="In" Type="String" />
+      <Parameter Name="Skill" Mode="In" Type="String" />
+      <Parameter Name="Nickname" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Teacher_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="TeacherID" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="MiddleName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="Skill" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TIO_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TIO_GetList">
+      <Parameter Name="JobID" Mode="In" Type="String" />
+      <Parameter Name="ExpirationDateFrom" Mode="In" Type="String" />
+      <Parameter Name="ExpirationDateTo" Mode="In" Type="String" />
+      <Parameter Name="Cost" Mode="In" Type="String" />
+      <Parameter Name="NoOfApplicants" Mode="In" Type="String" />
+      <Parameter Name="CurrentlyRecruitingNo" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TIO_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="JobID" Mode="In" Type="String" />
+      <Parameter Name="ExpirationDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="ExpirationDateTo" Mode="In" Type="DateTime" />
+      <Parameter Name="Cost" Mode="In" Type="Decimal" />
+      <Parameter Name="NoOfApplicants" Mode="In" Type="Int32" />
+      <Parameter Name="CurrentlyRecruitingNo" Mode="In" Type="Int32" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TroubleMgtInfo_GetList" ReturnType="Collection(SakuraModel.TroubleMgtInfo_GetList_Result)">
+      <Parameter Name="TroubleNo" Mode="In" Type="String" />
+      <Parameter Name="ReceptionDate" Mode="In" Type="String" />
+      <Parameter Name="Receptionist" Mode="In" Type="String" />
+      <Parameter Name="TroubleClassification" Mode="In" Type="String" />
+      <Parameter Name="TroubleContent" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Type_Delete">
+      <Parameter Name="ID" Mode="In" Type="String" />
+      <Parameter Name="UpdateID" Mode="In" Type="String" />
+      <Parameter Name="UpdateDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Type_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="String" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+      <Parameter Name="EndMsg" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UserPageAccess_GetAccessList" ReturnType="Collection(SakuraModel.UserPageAccess_GetAccessList_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="Languages" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UserPageAccess_INSERT_UPDATE">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="PageID" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="ReadAndWrite" Mode="In" Type="Boolean" />
+      <Parameter Name="Delete" Mode="In" Type="Boolean" />
+      <Parameter Name="CreateID" Mode="In" Type="String" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UserPageAccess_Validate" ReturnType="Collection(SakuraModel.UserPageAccess_Validate_Result)">
+      <Parameter Name="UserID" Mode="In" Type="String" />
+      <Parameter Name="PURL" Mode="In" Type="String" />
+      <Parameter Name="Languages" Mode="In" Type="String" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VariousCode_Delete">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="UpdateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VariousCode_GetList">
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="CodeName" Mode="In" Type="String" />
+      <Parameter Name="ItemCode" Mode="In" Type="String" />
+      <Parameter Name="ItemName" Mode="In" Type="String" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="PageCount" Mode="In" Type="Int32" />
+      <Parameter Name="RowCount" Mode="In" Type="Int32" />
+      <Parameter Name="SortCol" Mode="In" Type="String" />
+      <Parameter Name="sortDirection" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VariousCode_InsertUpdate">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="CodeName" Mode="In" Type="String" />
+      <Parameter Name="ItemCode" Mode="In" Type="String" />
+      <Parameter Name="ItemName" Mode="In" Type="String" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CreateID" Mode="In" Type="Int32" />
+      <Parameter Name="Error" Mode="InOut" Type="Boolean" />
+      <Parameter Name="ErrorMessage" Mode="InOut" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Branch_Get_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="CompanyID" Nullable="true" />
+    <Property Type="String" Name="BranchID" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="BranchName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BranchAbbreviation" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ZipCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Region" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="Province" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="City" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Barangay" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="TEL" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="TEL2" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="FAX" Nullable="true" MaxLength="18" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="RepENFN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RepENMN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RepENLN" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="RepENSuffix" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="RepJP" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Position" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreateID" Nullable="true" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdateID" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="String" Name="Company" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="Employee_Get_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="EmployeeID" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nickname" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Suffix" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Gender" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="Int32" Name="BranchID" Nullable="true" />
+    <Property Type="String" Name="DepartmentID" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreateID" Nullable="true" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdateID" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="String" Name="Branch" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Company" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="CompanyID" Nullable="true" />
+    <Property Type="String" Name="FullName" Nullable="false" MaxLength="163" />
+  </ComplexType>
+  <ComplexType Name="Employee_Login_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="EmployeeID" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Nickname" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Suffix" Nullable="true" MaxLength="10" />
+    <Property Type="Int32" Name="Gender" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="Int32" Name="BranchID" Nullable="true" />
+    <Property Type="String" Name="DepartmentID" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Remarks" Nullable="true" MaxLength="255" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="CreateID" Nullable="true" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdateID" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="String" Name="Department" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TroubleMgtInfo_GetList_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="TroubleNo" Nullable="false" MaxLength="5" />
+    <Property Type="DateTime" Name="ReceptionDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="Receptionist" Nullable="false" />
+    <Property Type="Int32" Name="TroubleClassification" Nullable="false" />
+    <Property Type="Int32" Name="TroubleContent" Nullable="false" />
+    <Property Type="String" Name="Remarks" Nullable="false" MaxLength="255" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="CreateID" Nullable="false" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UpdateID" Nullable="false" />
+    <Property Type="Int32" Name="IsDeleted" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="UserPageAccess_GetAccessList_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Languages" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="GroupLabel" Nullable="true" />
+    <Property Type="String" Name="PageName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PageLabel" Nullable="true" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="HasSub" Nullable="false" />
+    <Property Type="String" Name="ParentMenu" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ParentOrder" Nullable="false" />
+    <Property Type="Int32" Name="Order" Nullable="false" />
+    <Property Type="String" Name="Icon" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+    <Property Type="String" Name="CreateID" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UpdateID" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="ID1" Nullable="true" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="String" Name="PageID" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="Boolean" Name="ReadAndWrite" Nullable="true" />
+    <Property Type="Boolean" Name="Delete" Nullable="true" />
+    <Property Type="String" Name="CreateID1" Nullable="true" />
+    <Property Type="DateTime" Name="CreateDate1" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdateID1" Nullable="true" />
+    <Property Type="DateTime" Name="UpdateDate1" Nullable="true" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="UserPageAccess_Validate_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Languages" Nullable="true" MaxLength="5" />
+    <Property Type="String" Name="GroupLabel" Nullable="true" />
+    <Property Type="String" Name="PageName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PageLabel" Nullable="true" />
+    <Property Type="String" Name="URL" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="HasSub" Nullable="false" />
+    <Property Type="String" Name="ParentMenu" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="ParentOrder" Nullable="false" />
+    <Property Type="Int32" Name="Order" Nullable="false" />
+    <Property Type="String" Name="Icon" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+    <Property Type="String" Name="CreateID" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UpdateID" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="ReadAndWrite" Nullable="false" />
+    <Property Type="Int32" Name="DeleteEnabled" Nullable="false" />
+  </ComplexType>
+</Schema>

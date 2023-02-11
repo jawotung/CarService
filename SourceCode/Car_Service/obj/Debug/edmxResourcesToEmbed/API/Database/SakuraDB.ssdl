@@ -1,0 +1,956 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SakuraModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="mBranch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="int" />
+    <Property Name="BranchID" Type="nvarchar" MaxLength="15" />
+    <Property Name="BranchName" Type="nvarchar" MaxLength="100" />
+    <Property Name="BranchAbbreviation" Type="nvarchar" MaxLength="10" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Region" Type="nvarchar" MaxLength="200" />
+    <Property Name="Province" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="Barangay" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="TEL" Type="nvarchar" MaxLength="11" />
+    <Property Name="TEL2" Type="nvarchar" MaxLength="11" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="18" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="RepENFN" Type="nvarchar" MaxLength="50" />
+    <Property Name="RepENMN" Type="nvarchar" MaxLength="50" />
+    <Property Name="RepENLN" Type="nvarchar" MaxLength="50" />
+    <Property Name="RepENSuffix" Type="nvarchar" MaxLength="10" />
+    <Property Name="RepJP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Position" Type="nvarchar" MaxLength="50" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mClass">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherID" Type="int" />
+    <Property Name="DetailsNo" Type="nvarchar" MaxLength="100" />
+    <Property Name="Class" Type="nvarchar" MaxLength="100" />
+    <Property Name="AssistantTeacherID" Type="int" />
+    <Property Name="JapaneseTeacherID" Type="int" />
+    <Property Name="NoOfStudents" Type="int" />
+    <Property Name="OrientationStartDay" Type="datetime" />
+    <Property Name="OrientationEndDay" Type="datetime" />
+    <Property Name="CourseStartDay" Type="datetime" />
+    <Property Name="ClassEndDay" Type="datetime" />
+    <Property Name="ApplicationStartDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mCompany">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyID" Type="nvarchar" MaxLength="15" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyAbbreviation" Type="nvarchar" MaxLength="13" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Region" Type="nvarchar" MaxLength="200" />
+    <Property Name="Province" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="Barangay" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="255" />
+    <Property Name="TEL" Type="nvarchar" MaxLength="16" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="18" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="RepresentativeNameJP" Type="nvarchar" MaxLength="100" />
+    <Property Name="RepresentativeNameEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="POEALicenseNumber" Type="int" />
+    <Property Name="DateOfExpiry" Type="datetime" />
+    <Property Name="ApplicationStartDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="POEACertificate" Type="bit" />
+    <Property Name="RepresentativePassport" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mDepartment">
+    <Key>
+      <PropertyRef Name="BranchID" />
+      <PropertyRef Name="DepartmentCode" />
+    </Key>
+    <Property Name="BranchID" Type="int" Nullable="false" />
+    <Property Name="DepartmentCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mDivision">
+    <Key>
+      <PropertyRef Name="BranchID" />
+      <PropertyRef Name="DepartmentCode" />
+      <PropertyRef Name="DivisionCode" />
+    </Key>
+    <Property Name="BranchID" Type="int" Nullable="false" />
+    <Property Name="DepartmentCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="DivisionCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="DivisionName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mEmployee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="nvarchar" MaxLength="15" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="10" />
+    <Property Name="Suffix" Type="nvarchar" MaxLength="10" />
+    <Property Name="Gender" Type="int" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="BranchID" Type="int" />
+    <Property Name="DepartmentID" Type="nvarchar" MaxLength="15" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mExam">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExamID" Type="nvarchar" MaxLength="15" />
+    <Property Name="ExamName" Type="nvarchar" MaxLength="30" />
+    <Property Name="NoQuestions" Type="int" />
+    <Property Name="Score" Type="int" />
+    <Property Name="ImplementationDate" Type="datetime" />
+    <Property Name="ApplicablePeriodStartDate" Type="datetime" />
+    <Property Name="EndDateApplicationPeriod" Type="datetime" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mGeneral">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeID" Type="int" Nullable="false" />
+    <Property Name="Value" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreateID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mJobHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobCategory" Type="int" Nullable="false" />
+    <Property Name="JobCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="JobName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateID" Type="int" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateID" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mJobSSW">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codes" Type="nvarchar" MaxLength="15" />
+    <Property Name="SubCodes" Type="nvarchar" MaxLength="15" />
+    <Property Name="Categories" Type="nvarchar" MaxLength="100" />
+    <Property Name="JobCategories" Type="nvarchar" MaxLength="100" />
+    <Property Name="Operations" Type="nvarchar" MaxLength="100" />
+    <Property Name="Field" Type="nvarchar" MaxLength="100" />
+    <Property Name="JobTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="WorkName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mJobTIT">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="15" />
+    <Property Name="Field" Type="nvarchar" MaxLength="100" />
+    <Property Name="JobsEngageIn" Type="nvarchar" MaxLength="100" />
+    <Property Name="Industry" Type="nvarchar" MaxLength="100" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mLanguage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HTMLID" Type="varchar" MaxLength="50" />
+    <Property Name="CallCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Messege" Type="nvarchar" MaxLength="255" />
+    <Property Name="PageLabel" Type="varchar" MaxLength="50" />
+    <Property Name="Languages" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="mPages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Languages" Type="varchar" MaxLength="5" />
+    <Property Name="GroupLabel" Type="nvarchar(max)" />
+    <Property Name="PageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PageLabel" Type="nvarchar(max)" />
+    <Property Name="URL" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="HasSub" Type="bit" Nullable="false" />
+    <Property Name="ParentMenu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ParentOrder" Type="int" Nullable="false" />
+    <Property Name="Order" Type="int" Nullable="false" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreateID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mSchool">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SchoolID" Type="nvarchar" MaxLength="15" />
+    <Property Name="SchoolName" Type="nvarchar" MaxLength="100" />
+    <Property Name="SchoolAbbreviation" Type="nvarchar" MaxLength="13" />
+    <Property Name="ZipCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Region" Type="nvarchar" MaxLength="200" />
+    <Property Name="Province" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="100" />
+    <Property Name="Barangay" Type="nvarchar" MaxLength="100" />
+    <Property Name="Address" Type="nvarchar" MaxLength="60" />
+    <Property Name="TEL" Type="nvarchar" MaxLength="16" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="18" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="RepresentativeNameJP" Type="nvarchar" MaxLength="100" />
+    <Property Name="RepresentativeNameEN" Type="nvarchar" MaxLength="100" />
+    <Property Name="TESDALicenseNumber" Type="int" />
+    <Property Name="DateOfExpiry" Type="datetime" />
+    <Property Name="ApplicationStartDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="TESDACertificate" Type="bit" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mTeacher">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherID" Type="nvarchar" MaxLength="5" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nickname" Type="nvarchar" MaxLength="10" />
+    <Property Name="Skill" Type="nvarchar" MaxLength="20" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Sakura.dbo.mTIO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="mTIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="JobID" Type="nvarchar" MaxLength="15" />
+    <Property Name="ExpirationDateFrom" Type="datetime" />
+    <Property Name="ExpirationDateTo" Type="datetime" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="NoOfApplicants" Type="int" />
+    <Property Name="CurrentlyRecruitingNo" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="mTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreateID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="mUserPageAccess">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="PageID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="ReadAndWrite" Type="bit" Nullable="false" />
+    <Property Name="Delete" Type="bit" />
+    <Property Name="CreateID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateID" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Sakura.dbo.mVariousCode' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="mVariousCode">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="15" />
+    <Property Name="CodeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ItemCode" Type="nvarchar" MaxLength="30" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ApplicationStartDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="CreateID" Type="int" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="UpdateID" Type="int" />
+    <Property Name="IsDeleted" Type="bit" />
+  </EntityType>
+  <EntityType Name="tTroubleMgtInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TroubleNo" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="ReceptionDate" Type="datetime" Nullable="false" />
+    <Property Name="Receptionist" Type="int" Nullable="false" />
+    <Property Name="TroubleClassification" Type="int" Nullable="false" />
+    <Property Name="TroubleContent" Type="int" Nullable="false" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateID" Type="int" Nullable="false" />
+    <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdateID" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="int" Nullable="false" />
+  </EntityType>
+  <Function Name="Branch_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Branch_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Branch_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BranchID" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchAbbreviation" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Region" Type="nvarchar" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Barangay" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEL" Type="nvarchar" Mode="In" />
+    <Parameter Name="FAX" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyID" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Branch_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="CompanyID" Type="int" Mode="In" />
+    <Parameter Name="BranchID" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchName" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchAbbreviation" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Region" Type="nvarchar" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Barangay" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEL" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEL2" Type="nvarchar" Mode="In" />
+    <Parameter Name="FAX" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepENFN" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepENMN" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepENLN" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepENSuffix" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepJP" Type="nvarchar" Mode="In" />
+    <Parameter Name="Position" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Class_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Class_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Teacher" Type="nvarchar" Mode="In" />
+    <Parameter Name="AssistantTeacher" Type="nvarchar" Mode="In" />
+    <Parameter Name="JapaneseTeacher" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrientationStartDay" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrientationEndDay" Type="nvarchar" Mode="In" />
+    <Parameter Name="CourseStartDay" Type="nvarchar" Mode="In" />
+    <Parameter Name="ClassEndDay" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Class_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="TeacherID" Type="int" Mode="In" />
+    <Parameter Name="DetailsNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Class" Type="nvarchar" Mode="In" />
+    <Parameter Name="AssistantTeacherID" Type="int" Mode="In" />
+    <Parameter Name="NoOfStudents" Type="int" Mode="In" />
+    <Parameter Name="OrientationStartDay" Type="datetime" Mode="In" />
+    <Parameter Name="OrientationEndDay" Type="datetime" Mode="In" />
+    <Parameter Name="CourseStartDay" Type="datetime" Mode="In" />
+    <Parameter Name="ClassEndDay" Type="datetime" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Company_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Company_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyID" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyAbbreviation" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Region" Type="nvarchar" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Barangay" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEL" Type="nvarchar" Mode="In" />
+    <Parameter Name="FAX" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameJP" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameEN" Type="nvarchar" Mode="In" />
+    <Parameter Name="POEALicenseNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="DateOfExpiry" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="POEACertificate" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativePassport" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Company_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="CompanyID" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompanyAbbreviation" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Region" Type="nvarchar" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Barangay" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEL" Type="nvarchar" Mode="In" />
+    <Parameter Name="FAX" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameJP" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameEN" Type="nvarchar" Mode="In" />
+    <Parameter Name="POEALicenseNumber" Type="int" Mode="In" />
+    <Parameter Name="DateOfExpiry" Type="datetime" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="POEACertificate" Type="bit" Mode="In" />
+    <Parameter Name="RepresentativePassport" Type="bit" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Department_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BranchID" Type="int" Mode="In" />
+    <Parameter Name="DepartmentCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="DepartmentName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Division_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BranchID" Type="int" Mode="In" />
+    <Parameter Name="DepartmentCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="DivisionCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="DivisionName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Employee_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Employee_Get" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Employee_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="nvarchar" Mode="In" />
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Department" Type="nvarchar" Mode="In" />
+    <Parameter Name="Branch" Type="nvarchar" Mode="In" />
+    <Parameter Name="Company" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Employee_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="nvarchar" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Nickname" Type="nvarchar" Mode="In" />
+    <Parameter Name="Suffix" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Gender" Type="int" Mode="In" />
+    <Parameter Name="DepartmentID" Type="nvarchar" Mode="In" />
+    <Parameter Name="BranchID" Type="int" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Employee_Login" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Exam_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Exam_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExamID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ExamName" Type="nvarchar" Mode="In" />
+    <Parameter Name="NoQuestions" Type="nvarchar" Mode="In" />
+    <Parameter Name="Score" Type="nvarchar" Mode="In" />
+    <Parameter Name="ImplementationDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicablePeriodStartDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="EndDateApplicationPeriod" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Exam_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="ExamID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ExamName" Type="nvarchar" Mode="In" />
+    <Parameter Name="NoQuestions" Type="int" Mode="In" />
+    <Parameter Name="Score" Type="int" Mode="In" />
+    <Parameter Name="ImplementationDate" Type="datetime" Mode="In" />
+    <Parameter Name="ApplicablePeriodStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDateApplicationPeriod" Type="datetime" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="General_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UpdateID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="General_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="TypeID" Type="int" Mode="In" />
+    <Parameter Name="Value" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreateID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+    <Parameter Name="EndMsg" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="JobSSW_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="JobSSW_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Codes" Type="nvarchar" Mode="In" />
+    <Parameter Name="SubCodes" Type="nvarchar" Mode="In" />
+    <Parameter Name="Categories" Type="nvarchar" Mode="In" />
+    <Parameter Name="JobCategories" Type="nvarchar" Mode="In" />
+    <Parameter Name="Operations" Type="nvarchar" Mode="In" />
+    <Parameter Name="Field" Type="nvarchar" Mode="In" />
+    <Parameter Name="JobTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="WorkName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="JobSSW_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="Codes" Type="nvarchar" Mode="In" />
+    <Parameter Name="SubCodes" Type="nvarchar" Mode="In" />
+    <Parameter Name="Categories" Type="nvarchar" Mode="In" />
+    <Parameter Name="JobCategories" Type="nvarchar" Mode="In" />
+    <Parameter Name="Operations" Type="nvarchar" Mode="In" />
+    <Parameter Name="Field" Type="nvarchar" Mode="In" />
+    <Parameter Name="JobTitle" Type="nvarchar" Mode="In" />
+    <Parameter Name="WorkName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="JobTIT_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="JobTIT_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="nvarchar" Mode="In" />
+    <Parameter Name="Field" Type="nvarchar" Mode="In" />
+    <Parameter Name="JobsEngageIn" Type="nvarchar" Mode="In" />
+    <Parameter Name="Industry" Type="nvarchar" Mode="In" />
+    <Parameter Name="Occupation" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="JobTIT_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="Code" Type="nvarchar" Mode="In" />
+    <Parameter Name="Field" Type="nvarchar" Mode="In" />
+    <Parameter Name="JobsEngageIn" Type="nvarchar" Mode="In" />
+    <Parameter Name="Industry" Type="nvarchar" Mode="In" />
+    <Parameter Name="Occupation" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="School_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="School_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SchoolID" Type="nvarchar" Mode="In" />
+    <Parameter Name="SchoolName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SchoolAbbreviation" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Region" Type="nvarchar" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Barangay" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEL" Type="nvarchar" Mode="In" />
+    <Parameter Name="FAX" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameJP" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameEN" Type="nvarchar" Mode="In" />
+    <Parameter Name="TESDALicenseNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="DateOfExpiry" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="School_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="SchoolID" Type="nvarchar" Mode="In" />
+    <Parameter Name="SchoolName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SchoolAbbreviation" Type="nvarchar" Mode="In" />
+    <Parameter Name="ZipCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Region" Type="nvarchar" Mode="In" />
+    <Parameter Name="Province" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="Barangay" Type="nvarchar" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar" Mode="In" />
+    <Parameter Name="TEL" Type="nvarchar" Mode="In" />
+    <Parameter Name="FAX" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameJP" Type="nvarchar" Mode="In" />
+    <Parameter Name="RepresentativeNameEN" Type="nvarchar" Mode="In" />
+    <Parameter Name="TESDALicenseNumber" Type="int" Mode="In" />
+    <Parameter Name="DateOfExpiry" Type="datetime" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="TESDACertificate" Type="bit" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Teacher_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Teacher_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TeacherID" Type="nvarchar" Mode="In" />
+    <Parameter Name="FullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Skill" Type="nvarchar" Mode="In" />
+    <Parameter Name="Nickname" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Teacher_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="TeacherID" Type="nvarchar" Mode="In" />
+    <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Skill" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="TIO_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="TIO_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ExpirationDateFrom" Type="nvarchar" Mode="In" />
+    <Parameter Name="ExpirationDateTo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Cost" Type="nvarchar" Mode="In" />
+    <Parameter Name="NoOfApplicants" Type="nvarchar" Mode="In" />
+    <Parameter Name="CurrentlyRecruitingNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="TIO_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="JobID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ExpirationDateFrom" Type="datetime" Mode="In" />
+    <Parameter Name="ExpirationDateTo" Type="datetime" Mode="In" />
+    <Parameter Name="Cost" Type="decimal" Mode="In" />
+    <Parameter Name="NoOfApplicants" Type="int" Mode="In" />
+    <Parameter Name="CurrentlyRecruitingNo" Type="int" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="TroubleMgtInfo_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TroubleNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="ReceptionDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="Receptionist" Type="nvarchar" Mode="In" />
+    <Parameter Name="TroubleClassification" Type="nvarchar" Mode="In" />
+    <Parameter Name="TroubleContent" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Type_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UpdateID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UpdateDate" Type="datetime" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="Type_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreateID" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+    <Parameter Name="EndMsg" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="UserPageAccess_GetAccessList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Languages" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="UserPageAccess_INSERT_UPDATE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PageID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="ReadAndWrite" Type="bit" Mode="In" />
+    <Parameter Name="Delete" Type="bit" Mode="In" />
+    <Parameter Name="CreateID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar" Mode="InOut" />
+  </Function>
+  <Function Name="UserPageAccess_Validate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="PURL" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Languages" Type="nvarchar" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="nvarchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="VariousCode_Delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="UpdateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <Function Name="VariousCode_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageCount" Type="int" Mode="In" />
+    <Parameter Name="RowCount" Type="int" Mode="In" />
+    <Parameter Name="SortCol" Type="nvarchar" Mode="In" />
+    <Parameter Name="sortDirection" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VariousCode_InsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="Code" Type="nvarchar" Mode="In" />
+    <Parameter Name="CodeName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ItemName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateID" Type="int" Mode="In" />
+    <Parameter Name="Error" Type="bit" Mode="InOut" />
+    <Parameter Name="ErrorMessage" Type="varchar(max)" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="SakuraModelStoreContainer">
+    <EntitySet Name="mBranch" EntityType="Self.mBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mClass" EntityType="Self.mClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mCompany" EntityType="Self.mCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mDepartment" EntityType="Self.mDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mDivision" EntityType="Self.mDivision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mEmployee" EntityType="Self.mEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mExam" EntityType="Self.mExam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mGeneral" EntityType="Self.mGeneral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mJobHistory" EntityType="Self.mJobHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mJobSSW" EntityType="Self.mJobSSW" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mJobTIT" EntityType="Self.mJobTIT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mLanguage" EntityType="Self.mLanguage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mPages" EntityType="Self.mPages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mSchool" EntityType="Self.mSchool" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mTeacher" EntityType="Self.mTeacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mTypes" EntityType="Self.mTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mUserPageAccess" EntityType="Self.mUserPageAccess" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tTroubleMgtInfo" EntityType="Self.tTroubleMgtInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="mTIO" EntityType="Self.mTIO" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [mTIO].[ID] AS [ID], 
+    [mTIO].[JobID] AS [JobID], 
+    [mTIO].[ExpirationDateFrom] AS [ExpirationDateFrom], 
+    [mTIO].[ExpirationDateTo] AS [ExpirationDateTo], 
+    [mTIO].[Cost] AS [Cost], 
+    [mTIO].[NoOfApplicants] AS [NoOfApplicants], 
+    [mTIO].[CurrentlyRecruitingNo] AS [CurrentlyRecruitingNo], 
+    [mTIO].[Remarks] AS [Remarks], 
+    [mTIO].[CreateDate] AS [CreateDate], 
+    [mTIO].[CreateID] AS [CreateID], 
+    [mTIO].[UpdateDate] AS [UpdateDate], 
+    [mTIO].[UpdateID] AS [UpdateID], 
+    [mTIO].[IsDeleted] AS [IsDeleted]
+    FROM [dbo].[mTIO] AS [mTIO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="mVariousCode" EntityType="Self.mVariousCode" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [mVariousCode].[ID] AS [ID], 
+    [mVariousCode].[Code] AS [Code], 
+    [mVariousCode].[CodeName] AS [CodeName], 
+    [mVariousCode].[ItemCode] AS [ItemCode], 
+    [mVariousCode].[ItemName] AS [ItemName], 
+    [mVariousCode].[ApplicationStartDate] AS [ApplicationStartDate], 
+    [mVariousCode].[Remarks] AS [Remarks], 
+    [mVariousCode].[CreateDate] AS [CreateDate], 
+    [mVariousCode].[CreateID] AS [CreateID], 
+    [mVariousCode].[UpdateDate] AS [UpdateDate], 
+    [mVariousCode].[UpdateID] AS [UpdateID], 
+    [mVariousCode].[IsDeleted] AS [IsDeleted]
+    FROM [dbo].[mVariousCode] AS [mVariousCode]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
