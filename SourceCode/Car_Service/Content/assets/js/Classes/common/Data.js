@@ -428,24 +428,6 @@
                 }
             });
         },
-        populateToView: function (data, divContainer) {
-            divContainer = divContainer || "";
-            $.each(data, function (key, value) {
-                if (typeof value == "string") {
-                    value = value.toString().trim();
-                }
-                var x = JSON.stringify(value).trim() == '""' || JSON.stringify(value).trim() == "" || JSON.stringify(value).trim() == "null" ? "N/A" : value;
-                if ($("#v" + key).hasClass("chk-true-false")) {
-                    if (x == "1") 
-                        $("#v" + key).text("TRUE");
-                    else
-                        $("#v" + key).text("FALSE");
-                }
-                else {
-                    $("#v" + key).text(x);
-                }
-            });
-        },
         getDataTableData: function (tblData) {
             var arrData = [];
             var selectedRowCount = tblData.length;

@@ -330,6 +330,12 @@
     <Content Include="Content\assets\img\ajax-loader.gif" />
     <Content Include="Content\assets\img\blank-img.png" />
     <Content Include="Content\assets\img\blank.png" />
+    <Content Include="Content\assets\img\carservices\1.jpg" />
+    <Content Include="Content\assets\img\carservices\2.jpg" />
+    <Content Include="Content\assets\img\carservices\3.jpg" />
+    <Content Include="Content\assets\img\carservices\4.jpg" />
+    <Content Include="Content\assets\img\carservices\5.jfif" />
+    <Content Include="Content\assets\img\carservices\6.jpg" />
     <Content Include="Content\assets\img\fa-warning.svg" />
     <Content Include="Content\assets\img\gallery\gallery-51-thumb.jpg" />
     <Content Include="Content\assets\img\gallery\gallery-51.jpg" />

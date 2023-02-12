@@ -1,5 +1,4 @@
 ﻿<input type="hidden" id="hdnMenu" value="@Session["Menu"]" data-currurl="@Request.RawUrl" />
-<input type="hidden" id="hdnLanguageData" value="@Session["LanguageData"]" />
 <div id="sidebar" class="sidebar">
     <div data-scrollbar="true" data-height="100%">
         <ul class="nav">
@@ -7,7 +6,7 @@
                 <a href="javascript:;" data-toggle="nav-profile">
                     <div class="cover with-shadow"></div>
                     <div class="info">
-                        @Session["FullName"].ToString()
+                        @*@Session["FullName"].ToString()*@
                         <small id="sldWorkerID">@Session["WorkerID"].ToString().Trim()</small>
                     </div>
                 </a>

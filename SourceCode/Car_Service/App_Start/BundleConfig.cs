@@ -11,7 +11,7 @@ namespace CarService
             string[] LayoutJS = new string[]
             {
                 "~/Content/assets/js/bluebird.core.js",
-                "~/Content/assets/plugins/jquery/jquery-3.3.1.min.js",
+                "~/Content/assets/plugins/jqu.ery/jquery-3.3.1.min.js",
                 "~/Content/assets/plugins/jquery-ui/jquery-ui.min.js",
                 "~/Content/assets/plugins/bootstrap/js/bootstrap.bundle.min.js",
                 "~/Content/assets/plugins/slimscroll/jquery.slimscroll.js",
@@ -103,6 +103,15 @@ namespace CarService
                         "~/Content/assets/js/Login.js"
                     )
             );
+
+            bundles.Add(new Bundle("~/Home-JS")
+                    .Include(LayoutJS)
+                    .Include(TrxJS)
+                    .Include(
+                        "~/Scripts/Home.js"
+                    )
+            );
+
             RegisterMasterMaintenaceBundles(bundles, LayoutJS, LayoutCSS, TrxJS, TrxCSS, DataTblJS, DataTblCSS);
         }
         public static void RegisterMasterMaintenaceBundles(BundleCollection bundles, string[] LayoutJS, string[] LayoutCSS, string[] TrxJS, string[] TrxCSS, string[] DataTblJS, string[] DataTblCSS)
