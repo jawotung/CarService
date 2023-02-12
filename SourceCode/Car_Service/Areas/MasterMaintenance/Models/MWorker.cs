@@ -18,8 +18,4 @@ namespace CarService.Areas.MasterMaintenance.Models
         public string ContactNo { get; set; }
         public string PositionName { get; set; }
     }
-    public class MWorkerData
-    {
-        public List<MWorker> Data { get; set; }
-    }
 }

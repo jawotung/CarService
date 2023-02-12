@@ -1,0 +1,78 @@
+﻿
+@{  ViewBag.Title = "Worker Master";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+@section css{
+    @Styles.Render("~/AssignWorker-CSS")
+}
+<div class="panel panel-inverse" id="main-panel">
+    <div class="panel-heading">
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand">
+                <i class="fa fa-expand"></i>
+            </a>
+        </div>
+        <h4 class="panel-title">  @ViewBag.Title</h4>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-3 m-b-5 ReadAndWrite">
+                        <button type="button" id="btnAssignWorker" class="btn btn-sm btn-primary btn-block "><span class="fa fa-plus"></span><span class="btnLabel" id="btnAddLabel"> Assign Worker</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive" style="padding-top:10px;">
+            <table id="tblWorker" class="table table-bordered tbl-100p" data-adjust="-30"></table>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="mdlWorker" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-xl" id="" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mdlWorkerTitle"> Assign Worker</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form data-parsley-validate="true" id="frmWorker">
+                <div class="modal-body">
+                    <div id="divForm">
+                        <div class="row ">
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblWorkerID">WorkerID </span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <input type="text" id="WorkerID" name="WorkerID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-WorkerID" autocomplete="off">
+                                </div>
+                                <div id="err-WorkerID"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblFirstName">First Name </span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <input type="text" id="FirstName" name="FirstName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-FirstName" data-parsley-required autocomplete="off">
+                                </div>
+                                <div id="err-FirstName"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="ID" name="ID" class="input">
+                    <div class="ReadAndWrite">
+                        <button type="submit" class="btn btn-primary" id="btnSave"> <span class="fa fa-save"></span> <span class="btnLabel btnSaveLabel"> Save</span></button>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="fa fa-times"></span> <span class="btnLabel btnCloseLabel"> Close</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/AssignWorker-JS")
+}

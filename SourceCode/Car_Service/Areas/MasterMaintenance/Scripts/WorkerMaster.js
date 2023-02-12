@@ -126,7 +126,7 @@
         $('#WorkerID').prop('readonly', true);
         $("#btnSave .btnLabel").text(" Update");
         ajax.populateToFormInputs(data, "#frmWorker");
-        $("#Password").val(data.Password);
+        $("#Password").val("");
         $("#Password").attr('required', false);
         $("#mdlWorker").modal("show");
     }

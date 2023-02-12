@@ -1,0 +1,24 @@
+﻿
+@{ ViewBag.Title = "On-going Service";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+@section css{
+    @Styles.Render("~/TransactionHistory-CSS")
+}
+<div class="panel panel-inverse" id="main-panel">
+    <div class="panel-heading">
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand">
+                <i class="fa fa-expand"></i>
+            </a>
+        </div>
+        <h4 class="panel-title">  @ViewBag.Title</h4>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive" style="padding-top:10px;">
+            <table id="tblransaction" class="table table-bordered tbl-100p" data-adjust="-30"></table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/TransactionHistory-JS")
+}

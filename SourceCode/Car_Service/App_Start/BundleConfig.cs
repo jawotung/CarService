@@ -76,18 +76,18 @@ namespace CarService
                 "~/Content/assets/plugins/switchery/switchery.min.css",
                 "~/Content/assets/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js",
             };
-            bundles.Add(new Bundle("~/Home-CSS", googleFonts)
+            bundles.Add(new Bundle("~/Dashboard-CSS", googleFonts)
                     .Include(LayoutCSS)
                     .Include(DataTblCSS)
                     .Include(TrxCSS)
             );
 
-            bundles.Add(new Bundle("~/Home-JS")
+            bundles.Add(new Bundle("~/Dashboard-JS")
                     .Include(LayoutJS)
                     .Include(DataTblJS)
                     .Include(TrxJS)
                     .Include(
-                       "~/Scripts/Home.js"
+                       "~/Areas/MasterMaintenance/Scripts/Dashboard.js"
                     )
             );
             bundles.Add(new Bundle("~/Login-CSS", googleFonts)
@@ -145,6 +145,36 @@ namespace CarService
                     .Include(TrxJS)
                     .Include(
                         "~/Areas/MasterMaintenance/Scripts/GeneralMaster.js"
+                    )
+            );
+        }
+        public static void RegisterTransactioneBundles(BundleCollection bundles, string[] LayoutJS, string[] LayoutCSS, string[] TrxJS, string[] TrxCSS, string[] DataTblJS, string[] DataTblCSS)
+        {
+            bundles.Add(new Bundle("~/AssignWorker-CSS")
+                    .Include(LayoutCSS)
+                    .Include(DataTblCSS)
+                    .Include(TrxCSS)
+            );
+            bundles.Add(new Bundle("~/AssignWorker-JS")
+                    .Include(LayoutJS)
+                    .Include(DataTblJS)
+                    .Include(TrxJS)
+                    .Include(
+                        "~/Areas/Transaction/Scripts/AssignWorker.js"
+                    )
+            );
+
+            bundles.Add(new Bundle("~/OngoingService-CSS")
+                    .Include(LayoutCSS)
+                    .Include(DataTblCSS)
+                    .Include(TrxCSS)
+            );
+            bundles.Add(new Bundle("~/OngoingService-JS")
+                    .Include(LayoutJS)
+                    .Include(DataTblJS)
+                    .Include(TrxJS)
+                    .Include(
+                        "~/Areas/Transaction/Scripts/OngoingService.js"
                     )
             );
         }

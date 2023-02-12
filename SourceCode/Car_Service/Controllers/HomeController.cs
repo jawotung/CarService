@@ -5,11 +5,19 @@ using System.Web;
 using System.Web.Mvc;
 namespace CarServiceSystem.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            return View();
+            if (Session["WorkerID"] != null)
+            {
+                return RedirectToAction("Index", "Dashboard", new { area = "Dashboard" });
+            }
+            else
+            {
+                return View();
+            }
         }
 
         public ActionResult About()

@@ -213,12 +213,21 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\MasterMaintenance\Controllers\GeneralMasterController.cs" />
     <Compile Include="Areas\MasterMaintenance\Controllers\ServiceMasterController.cs" />
     <Compile Include="Areas\MasterMaintenance\Controllers\WorkerMasterController.cs" />
     <Compile Include="Areas\MasterMaintenance\MasterMaintenanceAreaRegistration.cs" />
     <Compile Include="Areas\MasterMaintenance\Models\MGeneral.cs" />
+    <Compile Include="Areas\MasterMaintenance\Models\MService.cs" />
     <Compile Include="Areas\MasterMaintenance\Models\MWorker.cs" />
+    <Compile Include="Areas\Report\Controllers\TransactionHistoryController.cs" />
+    <Compile Include="Areas\Report\ReportAreaRegistration.cs" />
+    <Compile Include="Areas\Transaction\Controllers\AssignWorkerController.cs" />
+    <Compile Include="Areas\Transaction\Controllers\OngoingServiceController.cs" />
+    <Compile Include="Areas\Transaction\Models\MAssignWorker.cs" />
+    <Compile Include="Areas\Transaction\TransactionAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
@@ -251,9 +260,12 @@
     <Content Include="App_Data\aspnet-Sakura-20200225051452_log.ldf">
       <DependentUpon>aspnet-Sakura-20200225051452.mdf</DependentUpon>
     </Content>
+    <Content Include="Areas\Dashboard\Scripts\Dashboard.js" />
     <Content Include="Areas\MasterMaintenance\Scripts\GeneralMaster.js" />
+    <Content Include="Areas\MasterMaintenance\Scripts\ServiceMaster.js" />
     <Content Include="Areas\MasterMaintenance\Scripts\WorkerMaster.js" />
     <Content Include="Areas\MasterMaintenance\Views\web.config" />
+    <Content Include="Areas\Transaction\Scripts\AssignWorker.js" />
     <Content Include="Content\assets\crossbrowserjs\excanvas.min.js" />
     <Content Include="Content\assets\crossbrowserjs\html5shiv.js" />
     <Content Include="Content\assets\crossbrowserjs\respond.min.js" />
@@ -2950,6 +2962,31 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\Custom-Fonts.css" />
+    <Content Include="Content\OnePage\assets\favicon.ico" />
+    <Content Include="Content\OnePage\assets\img\about\1.jpg" />
+    <Content Include="Content\OnePage\assets\img\about\2.jpg" />
+    <Content Include="Content\OnePage\assets\img\about\3.jpg" />
+    <Content Include="Content\OnePage\assets\img\about\4.jpg" />
+    <Content Include="Content\OnePage\assets\img\close-icon.svg" />
+    <Content Include="Content\OnePage\assets\img\header-bg.jpg" />
+    <Content Include="Content\OnePage\assets\img\logos\facebook.svg" />
+    <Content Include="Content\OnePage\assets\img\logos\google.svg" />
+    <Content Include="Content\OnePage\assets\img\logos\ibm.svg" />
+    <Content Include="Content\OnePage\assets\img\logos\microsoft.svg" />
+    <Content Include="Content\OnePage\assets\img\map-image.png" />
+    <Content Include="Content\OnePage\assets\img\navbar-logo.svg" />
+    <Content Include="Content\OnePage\assets\img\portfolio\1.jpg" />
+    <Content Include="Content\OnePage\assets\img\portfolio\2.jpg" />
+    <Content Include="Content\OnePage\assets\img\portfolio\3.jpg" />
+    <Content Include="Content\OnePage\assets\img\portfolio\4.jpg" />
+    <Content Include="Content\OnePage\assets\img\portfolio\5.jpg" />
+    <Content Include="Content\OnePage\assets\img\portfolio\6.jpg" />
+    <Content Include="Content\OnePage\assets\img\team\1.jpg" />
+    <Content Include="Content\OnePage\assets\img\team\2.jpg" />
+    <Content Include="Content\OnePage\assets\img\team\3.jpg" />
+    <Content Include="Content\OnePage\css\styles.css" />
+    <Content Include="Content\OnePage\index.html" />
+    <Content Include="Content\OnePage\js\scripts.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\Template\PrintExcel.xlsx" />
     <Content Include="favicon.ico" />
@@ -2977,6 +3014,14 @@
     <Content Include="Content\assets\plugins\jquery-inputmask\vssver2.scc" />
     <Content Include="Areas\MasterMaintenance\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\MasterMaintenance\Views\GeneralMaster\GeneralMaster.cshtml" />
+    <Content Include="Areas\MasterMaintenance\Views\ServiceMaster\ServiceMaster.cshtml" />
+    <Content Include="Areas\Transaction\Views\web.config" />
+    <Content Include="Areas\Transaction\Views\AssignWorker\AssignWorker.cshtml" />
+    <Content Include="Areas\Transaction\Views\OngoingService\OngoingService.cshtml" />
+    <Content Include="Areas\Report\Views\web.config" />
+    <Content Include="Areas\Report\Views\TransactionHistory\TransactionHistory.cshtml" />
+    <Content Include="Areas\Dashboard\Views\web.config" />
+    <Content Include="Areas\Dashboard\Views\Dashboard\Dashboard.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\city.js" />
@@ -3049,9 +3094,11 @@
     <Content Include="Scripts\philippine_provinces_cities_municipalities_and_barangays.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Areas\Dashboard\Views\Shared\" />
     <Folder Include="Areas\MasterMaintenance\Template\" />
     <Folder Include="Areas\MasterMaintenance\Upload\" />
-    <Folder Include="Areas\MasterMaintenance\Views\ServiceMaster\" />
+    <Folder Include="Areas\Report\Views\Shared\" />
+    <Folder Include="Areas\Transaction\Views\Shared\" />
     <Folder Include="Content\assets\plugins\bootstrap-select-1.13.9\tests\" />
     <Folder Include="Content\assets\plugins\DataTables\examples\advanced_init\" />
     <Folder Include="Content\assets\plugins\DataTables\examples\ajax\" />

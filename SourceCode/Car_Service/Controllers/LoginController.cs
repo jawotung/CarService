@@ -22,7 +22,7 @@ namespace CarServiceSystem.Controllers
         {
             if (Session["WorkerID"] != null)
             {
-                return RedirectToAction("Index", "Home", new { area = "" });
+                return RedirectToAction("Index", "Dashboard", new { area = "Dashboard" });
             }
             else
             {
@@ -70,16 +70,6 @@ namespace CarServiceSystem.Controllers
                                         Session["LastName"] = sdr["LastName"].ToString();
                                         Session["Position"] = common.FgNullToInt(sdr["Position"]);
                                     }
-                                }
-                                else
-                                {
-                                    int LoginAttemps = common.FgNullToInt(DataHelper.GetData("IsLock", "piPersonalInfo_Login", " Username = '" + data.WorkerID + "'"));
-                                    if (LoginAttemps >= 5)
-                                        errmsg = "This user already lock please contact the CarService for the support";
-                                    else if (LoginAttemps < 5 && LoginAttemps > 2)
-                                        errmsg = "Invalid Username or Password. Please try again.<br/> You only have " + (5 - LoginAttemps) + " attemps and your user will be lock";
-                                    else
-                                        errmsg = "Invalid Username or Password. Please try again.";
                                 }
                             }
                         }
