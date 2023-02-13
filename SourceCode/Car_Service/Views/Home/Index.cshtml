@@ -15,6 +15,19 @@
     <meta content="" name="author" />
     <title>Screw & Crews</title>
     <link rel="icon" href="~/Content/assets/img/logo/favicon.ico" type="image/x-icon">
+
+
+    <link href="~/Content/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/animate/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/default/style.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/default/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/Custom.css" rel="stylesheet" />
+    <link href="~/Content/Custom-Fonts.css" rel="stylesheet" />
+    <link href="~/Content/Site.cssrel=" stylesheet" />
+
+
     <link href="~/Content/OnePage/css/styles.css" rel="stylesheet" />
 </head>
 <body id="page-top">
@@ -33,6 +46,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Login</a></li>
                 </ul>
             </div>
@@ -216,8 +230,8 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        Email: j123oaoa@asdada.com<br />
-                        Location: asdadad
+                        Email: xxxxxxxx@gmail.com<br />
+                        Location: xxxxxxxx
                     </div>
                 </div>
             </form>
@@ -258,7 +272,52 @@
         </div>
     </div>
     <!--Service Form -->
-
+    <section class="page-section" id="register">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-left">Register Account</h2>
+                <h3 class="section-subheading text-muted text-left">Don't have account yet? Register Now!</h3>
+            </div>
+            <form id="registerForm" data-sb-form-api-token="API_TOKEN">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control is-invalid" id="name" type="text" placeholder="Your UserID *" data-sb-validations="required" data-sb-can-submit="no">
+                            @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
+                        </div>
+                        <div class="form-group mb-md-4">
+                            <input class="form-control" id="FirstName" placeholder="Your FirstName *" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A FirstName is required...</div>
+                        </div>
+                        <div class="form-group mb-md-4">
+                            <input class="form-control" id="MiddleName" placeholder="Your MiddleName *" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="MiddleName:required">A MiddleName is required...</div>
+                        </div>
+                        <div class="form-group mb-md-1">
+                            <input class="form-control" id="ContactNo" placeholder="Your ContactNo *" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="ContactNo:required">A ContactNo is required...</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="Password" placeholder="Your Password *" data-sb-validations="" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="email:email">A Password is required..</div>
+                        </div>
+                        <div class="form-group mb-md-4">
+                            <input class="form-control" id="MiddleName" placeholder="Your MiddleName" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="MiddleName:required">A MiddleName is required...</div>
+                        </div>
+                        <div class="form-group mb-md-">
+                            <input class="form-control" id="Email" placeholder="Your Email*" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="Email:required">A Email is required...</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Register</button></div>
+            </form>
+        </div>
+    </section>
+   
 
 
     <script src="~/Content/assets/js/bluebird.core.js"></script>

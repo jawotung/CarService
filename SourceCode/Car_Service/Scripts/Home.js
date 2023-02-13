@@ -3,6 +3,10 @@
     var Customer = $D();
     $(document).ready(function () {
         getCustomerPageInfo();
+        $("#registerForm").submit(function (e) {
+            e.preventDefault();
+            registerNewAccount()
+        });
     });
     // FUNCTIONS HERE #################################################################
     function getCustomerPageInfo() {
@@ -37,6 +41,14 @@
                 }
             }
             $("#portfolioRow").append(html);
+        });
+    }
+    function registerNewAccount() {
+        Customer.formData = $('#registerForm').serializeArray();
+        Customer.formAction = '/Home/SaveCustomer';
+        Customer.setJsonData();
+        Customer.sendData().then(function () {
+            $(".form-control").val("");
         });
     }
 })();
