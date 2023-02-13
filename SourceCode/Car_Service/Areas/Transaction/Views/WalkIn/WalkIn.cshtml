@@ -1,0 +1,143 @@
+﻿
+@{ ViewBag.Title = "Walk-In";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+@section css{
+    @Styles.Render("~/WalkIn-CSS")
+}
+<div class="panel panel-inverse" id="main-panel">
+    <div class="panel-heading">
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand">
+                <i class="fa fa-expand"></i>
+            </a>
+        </div>
+        <h4 class="panel-title">  @ViewBag.Title</h4>
+    </div>
+    <div class="panel-body">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-3 m-b-5 ReadAndWrite">
+                    <button type="button" id="btnAdd" class="btn btn-sm btn-primary btn-block "><span class="fa fa-plus"></span><span class="btnLabel" id="btnAddLabel"> Add</span></button>
+                </div>
+                <div class="col-sm-3 m-b-5 DeleteEnabled">
+                    <button type="button" id="btnDelete" class="btn btn-sm btn-danger btn-block " disabled><span class="fa fa-trash-alt"></span><span class="btnLabel" id="btnDeleteLabel"> Delete</span></button>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive" style="padding-top:10px;">
+            <table id="tblWalkIn" class="table table-bordered tbl-100p" data-adjust="-30"></table>
+        </div>
+    </div>
+</div>
+<div class="modal fade " id="mdlWalkIn" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-xl" id="" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="mdlWalkInTitle"> Create WalkIn</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form data-parsley-validate="true" id="frmWalkIn">
+                <div class="modal-body">
+                    <div id="divForm">
+                        <div class="row ">
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblWalkInID">WalkInID </span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <input type="text" id="WalkInID" name="WalkInID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-WalkInID" autocomplete="off">
+                                </div>
+                                <div id="err-WalkInID"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblFirstName">First Name </span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <input type="text" id="FirstName" name="FirstName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-FirstName" data-parsley-required autocomplete="off">
+                                </div>
+                                <div id="err-FirstName"></div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblMiddleName">Middle Name</span></label>
+                                    </div>
+                                    <input type="text" id="MiddleName" name="MiddleName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-MiddleName" autocomplete="off">
+                                </div>
+                                <div id="err-MiddleName"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblLastName">Last Name </span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <input type="text" id="LastName" name="LastName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-LastName" data-parsley-required autocomplete="off">
+                                </div>
+                                <div id="err-LastName"></div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span>Email</span></label>
+                                    </div>
+                                    <input type="text" id="Email" name="Email" class="form-control input" data-parsley-maxlength="100" maxlength="100" data-parsley-type="email" data-parsley-errors-container="#err-Email" autocomplete="off">
+                                </div>
+                                <div id="err-Email"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span>Contact No</span></label>
+                                    </div>
+                                    <input type="text" id="ContactNo" name="ContactNo" class="form-control input" data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-ContactNo" autocomplete="off">
+                                </div>
+                                <div id="err-ContactNo"></div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span class="lblGender">Gender</span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <select id="Gender" name="Gender" class="form-control input select2-manual" data-parsley-errors-container="#err-Gender" autocomplete="off" data-parsley-required>
+                                        <option value=""></option>
+                                        <option value="0" class="gMale">Male</option>
+                                        <option value="1" class="gFemale">Female</option>
+                                    </select>
+                                </div>
+                                <div id="err-Gender"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm mb-1">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span>Position</span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <select class="form-control input selectpicker selectpicker-sm clear" style="width: 50%" id="Position" name="Position" data-parsley-required data-parsley-errors-container="#err-Position"></select>
+                                </div>
+                                <div id="err-Position"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="ID" name="ID" class="input">
+                    <div class="ReadAndWrite">
+                        <button type="submit" class="btn btn-primary" id="btnSave"> <span class="fa fa-save"></span> <span class="btnLabel btnSaveLabel"> Save</span></button>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="fa fa-times"></span> <span class="btnLabel btnCloseLabel"> Close</span></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section scripts{
+    @Scripts.Render("~/WalkIn-JS")
+}

@@ -11,7 +11,7 @@ namespace CarService
             string[] LayoutJS = new string[]
             {
                 "~/Content/assets/js/bluebird.core.js",
-                "~/Content/assets/plugins/jqu.ery/jquery-3.3.1.min.js",
+                "~/Content/assets/plugins/jquery/jquery-3.3.1.min.js",
                 "~/Content/assets/plugins/jquery-ui/jquery-ui.min.js",
                 "~/Content/assets/plugins/bootstrap/js/bootstrap.bundle.min.js",
                 "~/Content/assets/plugins/slimscroll/jquery.slimscroll.js",
@@ -113,6 +113,7 @@ namespace CarService
             );
 
             RegisterMasterMaintenaceBundles(bundles, LayoutJS, LayoutCSS, TrxJS, TrxCSS, DataTblJS, DataTblCSS);
+            RegisterTransactioneBundles(bundles, LayoutJS, LayoutCSS, TrxJS, TrxCSS, DataTblJS, DataTblCSS);
         }
         public static void RegisterMasterMaintenaceBundles(BundleCollection bundles, string[] LayoutJS, string[] LayoutCSS, string[] TrxJS, string[] TrxCSS, string[] DataTblJS, string[] DataTblCSS)
         {
@@ -184,6 +185,20 @@ namespace CarService
                     .Include(TrxJS)
                     .Include(
                         "~/Areas/Transaction/Scripts/OngoingService.js"
+                    )
+            );
+
+            bundles.Add(new Bundle("~/WalkIn-CSS")
+                    .Include(LayoutCSS)
+                    .Include(DataTblCSS)
+                    .Include(TrxCSS)
+            );
+            bundles.Add(new Bundle("~/WalkIn-JS")
+                    .Include(LayoutJS)
+                    .Include(DataTblJS)
+                    .Include(TrxJS)
+                    .Include(
+                        "~/Areas/Transaction/Scripts/WalkIn.js"
                     )
             );
         }

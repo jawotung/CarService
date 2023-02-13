@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CarService.Areas.MasterMaintenance.Models
+namespace CarService.Areas.Transaction.Models
 {
     public class MAssignWorker
     {

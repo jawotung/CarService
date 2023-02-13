@@ -226,6 +226,8 @@
     <Compile Include="Areas\Report\ReportAreaRegistration.cs" />
     <Compile Include="Areas\Transaction\Controllers\AssignWorkerController.cs" />
     <Compile Include="Areas\Transaction\Controllers\OngoingServiceController.cs" />
+    <Compile Include="Areas\Transaction\Controllers\WalkInController.cs" />
+    <Compile Include="Areas\Transaction\Models\MWalkIn.cs" />
     <Compile Include="Areas\Transaction\Models\MAssignWorker.cs" />
     <Compile Include="Areas\Transaction\TransactionAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -265,7 +267,9 @@
     <Content Include="Areas\MasterMaintenance\Scripts\ServiceMaster.js" />
     <Content Include="Areas\MasterMaintenance\Scripts\WorkerMaster.js" />
     <Content Include="Areas\MasterMaintenance\Views\web.config" />
+    <Content Include="Areas\Transaction\Scripts\OngoingService.js" />
     <Content Include="Areas\Transaction\Scripts\AssignWorker.js" />
+    <Content Include="Areas\Transaction\Scripts\WalkIn.js" />
     <Content Include="Content\assets\crossbrowserjs\excanvas.min.js" />
     <Content Include="Content\assets\crossbrowserjs\html5shiv.js" />
     <Content Include="Content\assets\crossbrowserjs\respond.min.js" />
@@ -3028,6 +3032,7 @@
     <Content Include="Areas\Report\Views\TransactionHistory\TransactionHistory.cshtml" />
     <Content Include="Areas\Dashboard\Views\web.config" />
     <Content Include="Areas\Dashboard\Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Areas\Transaction\Views\WalkIn\WalkIn.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\city.js" />
