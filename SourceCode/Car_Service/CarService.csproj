@@ -252,6 +252,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MWordTransalate.cs" />
     <Compile Include="Models\MyBase.cs" />
+    <Compile Include="Models\OnlineJobOrder.cs" />
     <Compile Include="Models\PrintExcel.cs" />
     <Compile Include="Models\Security.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

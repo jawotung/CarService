@@ -60,8 +60,10 @@ namespace CarServiceSystem.Controllers
             }
         }
 
-        public ActionResult SaveCustomer(MWalkIn data)
+        public ActionResult SaveOnlineJobOrder(OnlineJobOrder data)
         {
+            int iType = 1; // Default as Online Job Order Type
+
             try
             {
                 using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ToString()))
@@ -70,16 +72,17 @@ namespace CarServiceSystem.Controllers
                     using (SqlCommand myCommand = myConnection.CreateCommand())
                     {
                         myCommand.CommandType = CommandType.StoredProcedure;
-                        myCommand.CommandText = "mCustomer_InsertUpdate";
+                        myCommand.CommandText = "tCustomerJobOrder_InsertUpdate";
                         myCommand.Parameters.Clear();
                         myCommand.Parameters.AddWithValue("@UserID", data.UserID);
                         myCommand.Parameters.AddWithValue("@Password", common.FgDBString(data.Password));
                         myCommand.Parameters.AddWithValue("@FirstName", common.FgDBString(data.FirstName));
                         myCommand.Parameters.AddWithValue("@MiddleName", common.FgDBString(data.MiddleName));
                         myCommand.Parameters.AddWithValue("@LastName", common.FgDBString(data.LastName));
-                        myCommand.Parameters.AddWithValue("@Password", common.FgDBString(data.Password));
                         myCommand.Parameters.AddWithValue("@ContactNo", common.FgDBString(data.ContactNo));
                         myCommand.Parameters.AddWithValue("@EmailAddress", common.FgDBString(data.EmailAddress));
+                        myCommand.Parameters.AddWithValue("@Type", iType);
+                        myCommand.Parameters.AddWithValue("@Remarks", common.FgDBString(data.Remarks));
                         myCommand.Parameters.AddWithValue("@CreateID", Session["ID"]);
                         SqlParameter ErrorMessage = myCommand.Parameters.Add("@ErrorMessage", SqlDbType.VarChar, 1000);
                         SqlParameter Error = myCommand.Parameters.Add("@Error", SqlDbType.Bit);
