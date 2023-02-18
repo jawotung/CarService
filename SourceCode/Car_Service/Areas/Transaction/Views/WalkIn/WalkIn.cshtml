@@ -45,11 +45,11 @@
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" style="width:110px;"><span id="lblWalkInID">WalkInID </span><span class="text-danger asteris-requiered">*</span></label>
+                                        <label class="input-group-text" style="width:110px;"><span id="lblWalkInID">UserID </span><span class="text-danger asteris-requiered">*</span></label>
                                     </div>
-                                    <input type="text" id="WalkInID" name="WalkInID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-WalkInID" autocomplete="off">
+                                    <input type="text" id="UserID" name="UserID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-UserID" autocomplete="off">
                                 </div>
-                                <div id="err-WalkInID"></div>
+                                <div id="err-UserID"></div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
@@ -87,9 +87,9 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span>Email</span></label>
                                     </div>
-                                    <input type="text" id="Email" name="Email" class="form-control input" data-parsley-maxlength="100" maxlength="100" data-parsley-type="email" data-parsley-errors-container="#err-Email" autocomplete="off">
+                                    <input type="text" id="EmailAddress" name="EmailAddress" class="form-control input" data-parsley-maxlength="100" maxlength="100" data-parsley-type="email" data-parsley-errors-container="#err-EmailAddress" autocomplete="off">
                                 </div>
-                                <div id="err-Email"></div>
+                                <div id="err-EmailAddress"></div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
@@ -105,26 +105,36 @@
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" style="width:110px;"><span class="lblGender">Gender</span><span class="text-danger asteris-requiered">*</span></label>
+                                        <label class="input-group-text" style="width:110px;"><span>Password </span><span class="text-danger asteris-requiered">*</span></label>
                                     </div>
-                                    <select id="Gender" name="Gender" class="form-control input select2-manual" data-parsley-errors-container="#err-Gender" autocomplete="off" data-parsley-required>
-                                        <option value=""></option>
-                                        <option value="0" class="gMale">Male</option>
-                                        <option value="1" class="gFemale">Female</option>
-                                    </select>
+                                    <input type="password" id="Password" name="Password" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-Password" data-parsley-required autocomplete="off">
                                 </div>
-                                <div id="err-Gender"></div>
+                                <div id="err-Password"></div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm mb-1">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" style="width:110px;"><span>Position</span><span class="text-danger asteris-requiered">*</span></label>
+                                        <label class="input-group-text" style="width:110px;"><span>Date</span><span class="text-danger asteris-requiered">*</span></label>
                                     </div>
-                                    <select class="form-control input selectpicker selectpicker-sm clear" style="width: 50%" id="Position" name="Position" data-parsley-required data-parsley-errors-container="#err-Position"></select>
+                                    <input type="text" id="Startdate" name="Startdate" class="form-control input date-format" data-parsley-maxlength="10" maxlength="10" data-parsley-errors-container="#err-Startdate" autocomplete="off">
                                 </div>
-                                <div id="err-Position"></div>
+                                <div id="err-Startdate"></div>
                             </div>
                         </div>
+                        <div class="row ">
+                            <div class="col-sm-12">
+                                <div class="input-group input-group-sm mb-1">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span>Remarks</span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <input type="text" id="Remarks" name="Remarks" class="form-control input" data-parsley-maxlength="255" maxlength="255" data-parsley-errors-container="#err-Remarks" autocomplete="off">
+                                </div>
+                                <div id="err-Remarks"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive" style="padding-top:10px;">
+                        <table id="tblService" class="table table-bordered tbl-100p" data-adjust="-30"></table>
                     </div>
                 </div>
                 <div class="modal-footer">

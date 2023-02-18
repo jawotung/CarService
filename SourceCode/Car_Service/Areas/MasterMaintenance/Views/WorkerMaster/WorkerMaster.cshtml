@@ -99,15 +99,24 @@
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblLastName">Password </span><span class="text-danger asteris-requiered">*</span></label>
+                                    </div>
+                                    <input type="password" id="Password" name="Password" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-Password" data-parsley-required autocomplete="off">
+                                </div>
+                                <div id="err-Password"></div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-3">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span>Contact No</span></label>
                                     </div>
                                     <input type="text" id="ContactNo" name="ContactNo" class="form-control input" data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-ContactNo" autocomplete="off">
                                 </div>
                                 <div id="err-ContactNo"></div>
                             </div>
-                        </div>
-                        <div class="row ">
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span class="lblGender">Gender</span><span class="text-danger asteris-requiered">*</span></label>

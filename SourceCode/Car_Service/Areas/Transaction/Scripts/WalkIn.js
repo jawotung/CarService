@@ -2,29 +2,10 @@
 (function () {
     var ajax = $D();
     var tblWalkIn = "";
+    var tblService = "";
     var $H = $Helper();
     $(document).ready(function () {
         drawDatatables();
-
-        $('#Position').select2({
-            ajax: {
-                url: "/General/GetSelect2Data",
-                data: function (params) {
-                    return {
-                        q: params.term,
-                        id: 'ID',
-                        text: 'Value',
-                        table: 'mGeneral',
-                        db: 'CarService',
-                        condition: ' AND IsDeleted=0 AND TypeID = 1',
-                        display: 'id&text',
-                    };
-                },
-            },
-            placeholder: '-Please Select-',
-            theme: 'bootstrap4',
-            width: 'resolve'
-        });
 
         $('#tblWalkIn tbody').on('click', 'tr', function (e) {
             switch (e.target.localName) {
@@ -74,7 +55,7 @@
             ajax.msg = "Are you sure you want to delete this data?";
             ajax.confirmAction().then(function (approve) {
                 if (approve) {
-                    ajax.formAction = '/MasterMaintenance/WalkInMaster/DeleteWalkIn';
+                    ajax.formAction = '/Transaction/WalkIn/DeleteWalkIn';
                     ajax.jsonData = { ID: data.ID };
                     ajax.sendData().then(function () {
                         tblWalkIn.ajax.reload(null, false);
@@ -86,13 +67,27 @@
         });
         $("#frmWalkIn").submit(function (e) {
             e.preventDefault();
-            ajax.formData = $('#frmWalkIn').serializeArray();
-            ajax.formAction = '/MasterMaintenance/WalkInMaster/SaveWalkIn';
-            ajax.setJsonData().sendData().then(function () {
-                tblWalkIn.ajax.reload(false);
-                cancelTbl();
-                cancelForm();
-            });
+            if ($(".CheckItem:checked").length != 0) {
+                var data = $H.serializeToArray($('#frmWalkIn').serializeArray());
+                var Detail = [];
+                $.each($(".CheckItem:checked"), function () {
+                    Detail.push({
+                        ServiceID: $(this).attr("data-ID"),
+                        Price: $(this).attr("data-Amount"),
+                    });
+                });
+                ajax.formAction = '/Transaction/WalkIn/SaveWalkIn';
+                ajax.jsonData = {
+                    data: data,
+                    Detail: Detail,
+                };
+                ajax.sendData().then(function () {
+                    tblWalkIn.ajax.reload(null, false);
+                    tblService.ajax.reload(null, false);
+                });
+            } else {
+                ajax.showError("Please check the checkbox in the table");
+            }
         });
         $("#FirstName, #MiddleName, #LastName").blur(function () {
             $(this).val($Helper().MakeFirstLetterUpper($(this).val()));
@@ -114,6 +109,31 @@
                 columns: [
                     { title: "WalkInID", data: "WalkInID" },
                     { title: "FullName", data: 'FullName' },
+                    { title: "Position", data: 'PositionName' },
+                ],
+            })
+        }
+        if (!$.fn.DataTable.isDataTable('#tblService')) {
+            tblService = $('#tblService').DataTable({
+                searching: false,
+                "pageLength": 25,
+                "ajax": {
+                    "url": "/MasterMaintenance/ServiceMaster/GetServiceList",
+                    "type": "GET",
+                    "datatype": "json",
+                },
+                dataSrc: "data",
+                select: true,
+                columns: [
+                    {
+                        title: '',
+                        data: function (data) {
+                            return '<input type="checkbox" data-ID="' + data.ID + '" data-Amount="' + data.Amount + '" class="CheckItem" />';
+                        }, sortable: false, orderable: false, width: "5%"
+                    },
+                    { title: "ServiceName", data: "ServiceName" },
+                    { title: "Duration", data: 'Duration' },
+                    { title: "Amount", data: 'Amount' },
                     { title: "Position", data: 'PositionName' },
                 ],
             })

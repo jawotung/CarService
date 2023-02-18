@@ -21,7 +21,7 @@ namespace CarService.Areas.Transaction.Controllers
         {
             return View("WalkIn");
         }
-        public ActionResult SaveWalkIn(MWalkIn data)
+        public ActionResult SaveWalkIn(MWalkIn data, MJO_Detail Detail)
         {
             try
             {
