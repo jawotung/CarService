@@ -15,6 +15,30 @@
     <meta content="" name="author" />
     <title>Screw & Crews</title>
     <link rel="icon" href="~/Content/assets/img/logo/favicon.ico" type="image/x-icon">
+    <!-- Layout Plugins -->
+    <link href="~/Content/assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/animate/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/default/style.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/default/style-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/Custom.css" rel="stylesheet" />
+    <link href="~/Content/Custom-Fonts.css" rel="stylesheet" />
+    <link href="~/Content/Site.cssrel=" stylesheet" />
+    <!-- DataTbl Plugins -->
+    <link href="~ /Content/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css" />
+    <link href="~/Content/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" />
+    <!-- Trx Plugins -->
+    <link href="~/Content/assets/plugins/iziToast/dist/css/iziToast.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/iziModal/css/iziModal.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/Parsleyjs/src/parsley.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/timepicker/jquery.timepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/select2/dist/css/select2.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/select2/dist/css/select2-bootstrap4.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/switchery/switchery.min.css" rel="stylesheet" />
+    <link href="~/Content/assets/plugins/jquery-inputmask/jquery.inputmask.bundle.min.js" rel="stylesheet" />
+    <!-- Template Plugins -->
     <link href="~/Content/OnePage/css/styles.css" rel="stylesheet" />
 </head>
 <body id="page-top">
@@ -33,6 +57,7 @@
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    @*<li class="nav-item"><a class="nav-link" href="#register">Register</a></li>*@
                     <li class="nav-item"><a class="nav-link" href="#contact">Login</a></li>
                 </ul>
             </div>
@@ -86,26 +111,14 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Product</h2>
+                <button id="btnServiceCart" class="btn btn-md section-subheading"><i class="fa fa-shopping-cart fa-3x" aria-hidden="true" style="color: #ffc800;"></i></button>
                 <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
             </div>
-            <div class="row" id="portfolioRow">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Portfolio item 1-->
-                    <div class="portfolio-item">
-                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                            <div class="portfolio-hover">
-                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img id="imgPortFolio_1" class="img-fluid" src="" alt="..." />
-                        </a>
-                        <div class="portfolio-caption">
-                            <div class="portfolio-caption-heading">Threads</div>
-                            <div class="portfolio-caption-subheading text-muted">Illustration</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="divServiceRow">
+                <!-- Product Content Here -->
             </div>
         </div>
+        <div class="text-center"><a class="btn btn-outline-secondary btn-md text-uppercase">Show Me More</a></div>
     </section>
     <!-- About-->
     <section class="page-section" id="about">
@@ -216,13 +229,59 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-                        Email: j123oaoa@asdada.com<br />
-                        Location: asdadad
+                        Email: xxxxxxxx@gmail.com<br />
+                        Location: xxxxxxxx
                     </div>
                 </div>
             </form>
         </div>
     </section>
+    <!--Service Form -->
+    <!--<section class="page-section" id="register">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-left">Register Account</h2>
+                <h3 class="section-subheading text-muted text-left">Don't have account yet? Register Now!</h3>
+            </div>
+            <form id="registerForm" data-sb-form-api-token="API_TOKEN">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control is-invalid" id="name" type="text" placeholder="Your UserID *" data-sb-validations="required" data-sb-can-submit="no">-->
+                            @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
+                        <!--</div>
+                        <div class="form-group mb-md-4">
+                            <input class="form-control" id="FirstName" placeholder="Your FirstName *" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="phone:required">A FirstName is required...</div>
+                        </div>
+                        <div class="form-group mb-md-4">
+                            <input class="form-control" id="MiddleName" placeholder="Your MiddleName *" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="MiddleName:required">A MiddleName is required...</div>
+                        </div>
+                        <div class="form-group mb-md-1">
+                            <input class="form-control" id="ContactNo" placeholder="Your ContactNo *" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="ContactNo:required">A ContactNo is required...</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="Password" placeholder="Your Password *" data-sb-validations="" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="email:email">A Password is required..</div>
+                        </div>
+                        <div class="form-group mb-md-4">
+                            <input class="form-control" id="MiddleName" placeholder="Your MiddleName" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="MiddleName:required">A MiddleName is required...</div>
+                        </div>
+                        <div class="form-group mb-md-">
+                            <input class="form-control" id="Email" placeholder="Your Email*" data-sb-validations="required" data-sb-can-submit="no">
+                            <div class="invalid-feedback" data-sb-feedback="Email:required">A Email is required...</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Register</button></div>
+            </form>
+        </div>
+    </section>-->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -257,10 +316,120 @@
             </div>
         </div>
     </div>
-    <!--Service Form -->
+    <div class="modal fade " id="mdlCustomerServiceForm" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl" id="" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="mdlCustomerServiceFormTitle"> Customer Service Form</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form data-parsley-validate="true" id="frmCustomerServiceForm">
+                    <div class="modal-body">
+                        <div id="divForm">
+                            <div class="row ">
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span id="lblCustomerServiceFormID">OnlineID </span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <input type="text" id="CustomerServiceFormID" name="CustomerServiceFormID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-CustomerServiceFormID" autocomplete="off">
+                                    </div>
+                                    <div id="err-CustomerServiceFormID"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span id="lblFirstName">First Name </span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <input type="text" id="FirstName" name="FirstName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-FirstName" data-parsley-required autocomplete="off">
+                                    </div>
+                                    <div id="err-FirstName"></div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span id="lblMiddleName">Middle Name</span></label>
+                                        </div>
+                                        <input type="text" id="MiddleName" name="MiddleName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-MiddleName" autocomplete="off">
+                                    </div>
+                                    <div id="err-MiddleName"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span id="lblLastName">Last Name </span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <input type="text" id="LastName" name="LastName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-LastName" data-parsley-required autocomplete="off">
+                                    </div>
+                                    <div id="err-LastName"></div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span>Email</span></label>
+                                        </div>
+                                        <input type="text" id="Email" name="Email" class="form-control input" data-parsley-maxlength="100" maxlength="100" data-parsley-type="email" data-parsley-errors-container="#err-Email" autocomplete="off">
+                                    </div>
+                                    <div id="err-Email"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span>Contact No</span></label>
+                                        </div>
+                                        <input type="text" id="ContactNo" name="ContactNo" class="form-control input" data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-ContactNo" autocomplete="off">
+                                    </div>
+                                    <div id="err-ContactNo"></div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span class="lblGender">Gender</span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <select id="Gender" name="Gender" class="form-control input select2-manual" data-parsley-errors-container="#err-Gender" autocomplete="off" data-parsley-required>
+                                            <option value=""></option>
+                                            <option value="0" class="gMale">Male</option>
+                                            <option value="1" class="gFemale">Female</option>
+                                        </select>
+                                    </div>
+                                    <div id="err-Gender"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm mb-1">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span>Position</span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <select class="form-control input selectpicker selectpicker-sm clear" style="width: 50%" id="Position" name="Position" data-parsley-required data-parsley-errors-container="#err-Position"></select>
+                                    </div>
+                                    <div id="err-Position"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive mt-2">
+                            <table id="tblCustomerServiceForm" class="table table-bordered tbl-100p" data-adjust="-30"></table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" id="ID" name="ID" class="input">
+                        <div class="ReadAndWrite">
+                            <button type="submit" class="btn btn-primary" id="btnSave"> <span class="fa fa-save"></span> <span class="btnLabel btnSaveLabel"> Save</span></button>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="fa fa-times"></span> <span class="btnLabel btnCloseLabel"> Close</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-
-
+    <!-- Layout Plugins -->
     <script src="~/Content/assets/js/bluebird.core.js"></script>
     <script src="~/Content/assets/plugins/jquery/jquery-3.3.1.min.js"></script>
     <script src="~/Content/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -273,7 +442,12 @@
     <script src="~/Content/assets/js/apps.min.js"></script>
     <script src="~/Content/assets/js/Menu.js"></script>
     <script src="~/Content/assets/js/Custom.js"></script>
-
+    <!-- DataTbl Plugins -->
+    <script src="~/Content/assets/plugins/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="~/Content/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/assets/js/demo/table-manage-fixed-header.demo.min.js"></script>
+    <!-- Trx Plugins -->
     <script src="~/Content/assets/plugins/iziToast/dist/js/iziToast.min.js"></script>
     <script src="~/Content/assets/plugins/iziModal/js/iziModal.js"></script>
     <script src="~/Content/assets/plugins/Parsleyjs/dist/parsley.min.js"></script>

@@ -231,6 +231,7 @@
     <Compile Include="Areas\Transaction\Models\MAssignWorker.cs" />
     <Compile Include="Areas\Transaction\TransactionAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerLoginController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GeneralController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MWordTransalate.cs" />
     <Compile Include="Models\MyBase.cs" />
+    <Compile Include="Models\OnlineJobOrder.cs" />
     <Compile Include="Models\PrintExcel.cs" />
     <Compile Include="Models\Security.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -3103,6 +3105,7 @@
     <Content Include="Views\Shared\_Sidebar.cshtml" />
     <Content Include="Views\Shared\_Theme.cshtml" />
     <Content Include="Scripts\philippine_provinces_cities_municipalities_and_barangays.json" />
+    <Content Include="Views\CustomerLogin\CustomerLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Dashboard\Views\Shared\" />
