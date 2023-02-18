@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CarService.Areas.Transaction.Models;
+using CarService.Areas.MasterMaintenance.Models;
 using CarService.Models;
 
 namespace CarServiceSystem.Controllers
@@ -58,6 +59,57 @@ namespace CarServiceSystem.Controllers
 
                 return Json(new { success = false, errors = errmsg }, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        public ActionResult GetServices()
+        {
+            List<MService> objServiceList = new List<MService>();
+
+            try
+            {
+                using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ConnectionString.ToString()))
+
+                {
+                    myConnection.Open();
+                    using (SqlCommand myCommand = myConnection.CreateCommand())
+                    {
+                        myCommand.CommandType = CommandType.StoredProcedure;
+                        myCommand.CommandText = "mService_GetList";
+
+                        using (SqlDataReader sdr = myCommand.ExecuteReader())
+                        {
+                            while (sdr.Read())
+                            {
+                                objServiceList.Add(new MService
+                                {
+                                    ID = common.FgNullToInt(sdr["ID"]),
+                                    ServiceName = sdr["ServiceName"].ToString(),
+                                    DurationTo = sdr["DurationTo"].ToString(),
+                                    DurationFrom = sdr["DurationFrom"].ToString(),
+                                    Duration = sdr["DurationFrom"].ToString() + " - " + sdr["DurationTo"].ToString(),
+                                    Amount = sdr["Amount"].ToString(),
+                                    Position = common.FgNullToInt(sdr["Position"]),
+                                    PositionName = sdr["PositionName"].ToString(),
+                                });
+                            }
+                        }
+                    }
+                    myConnection.Close();
+                }
+
+                return Json(new { success = true, data = objServiceList }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception err)
+            {
+                string errmsg;
+                if (err.InnerException != null)
+                    errmsg = "An error occured: " + err.InnerException.ToString();
+                else
+                    errmsg = "An error occured: " + err.Message.ToString();
+
+                return Json(new { success = false, msg = errmsg }, JsonRequestBehavior.AllowGet);
+            };
         }
 
         public ActionResult SaveOnlineJobOrder(OnlineJobOrder data)

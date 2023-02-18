@@ -108,25 +108,27 @@
         getCustomerPageInfo();
     }
     function getCustomerPageInfo() {
-        Customer.formAction = "/Home/GetCustomerPageInfo";
+        Customer.formAction = "/Home/GetServices";
         Customer.sendData().then(function () {
-            var listOfPath = Customer.responseData;
-            if (listOfPath.length <= 0)
+            var listOfPath = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jfif", "6.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg"];
+            var data = Customer.responseData;
+            if (data.length <= 0)
                 return;
 
             var html = "";
-            for (var i = 0; i < listOfPath.length; i++) {
+            for (var i = 0; i < data.length; i++) {
                 html += '<div class="col-lg-4 col-sm-6 mb-4">' +
-                            '<div class="portfolio-item" data-id="' + (i + 1) + '">' + // Temporary id due to no DB yet
+                            '<div class="portfolio-item" data-id="' + data[i].ID + '">' + // Temporary id due to no DB yet
                                 '<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">' +
                                     '<div class="portfolio-hover">' +
                                         '<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>' +
                                     '</div>'+ 
-                                    '<img id="imgPortFolio_' + (i + 1) + '"  class="img-fluid" src="/Content/assets/img/carservices/' + listOfPath[i] + '" alt="..." />' +
+                                    '<img id="imgPortFolio_' + (data[i] + 1) + '"  class="img-fluid" src="/Content/assets/img/carservices/' + listOfPath[i] + '" alt="..." />' +
                                 '</a>' +
                                 '<div class="portfolio-caption">' +
-                                    '<div class="portfolio-caption-heading">' + sampleServices[i] + '</div>' +
-                                    '<div class="portfolio-caption-subheading text-muted">Illustration</div>' +
+                                    '<div class="portfolio-caption-heading">' + data[i].ServiceName + '</div>' +
+                                    '<div class="portfolio-caption-subheading text-muted">P ' + data[i].Amount  + '</div>' +
+                                    '<div class="portfolio-caption-subheading text-muted">P ' + data[i].DurationFrom  + ' ~ ' + data[i].DurationTo + '</div>' +
                                 '</div>' +
                             '</div>' +
                         '</div>';
@@ -164,9 +166,12 @@
         });
     }
     function saveOnlineJobOrder() {
+        var jsonData = [];
         Customer.formData = $('#frmCustomerServiceForm').serializeArray();
+        jsonData = Customer.selectedSetvicesCount();
+
         Customer.formAction = '/Home/SaveOnlineJobOrder';
-        Customer.setJsonData();
+        Customer.jsonData = { data: data };
         Customer.sendData().then(function () {
             tblCustomerService.ajax.reload(false);
             cancelForm();
