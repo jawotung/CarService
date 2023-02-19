@@ -41,42 +41,39 @@
             <form data-parsley-validate="true" id="frmWalkIn">
                 <div class="modal-body">
                     <div id="divForm">
-                        <div class="row ">
+                        <div class="row">
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span id="lblWalkInID">UserID </span><span class="text-danger asteris-requiered">*</span></label>
                                     </div>
-                                    <input type="text" id="UserID" name="UserID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-UserID" autocomplete="off">
+                                    <input type="text" id="UserID" name="UserID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-UserID" autocomplete="off">
                                 </div>
                                 <div id="err-UserID"></div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="input-group input-group-sm m-b-5">
-                                    <div class="input-group-prepend">
-                                        <label class="input-group-text" style="width:110px;"><span id="lblFirstName">First Name </span><span class="text-danger asteris-requiered">*</span></label>
-                                    </div>
-                                    <input type="text" id="FirstName" name="FirstName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-FirstName" data-parsley-required autocomplete="off">
-                                </div>
-                                <div id="err-FirstName"></div>
+                            <div class="col-sm-2 m-b-5">
+                                <button type="button" id="btnGo" class="btn btn-sm btn-green btn-block ">Go</button>
+                            </div>
+                            <div class="col-sm-3 m-b-5">
+                                <button type="button" id="btnNewCustomer" class="btn btn-sm btn-primary btn-block "><span class="fa fa-user"></span><span class="btnLabel" id="btnNewCustomerLabel"> Have an account</span></button>
                             </div>
                         </div>
                         <div class="row ">
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
-                                        <label class="input-group-text" style="width:110px;"><span id="lblMiddleName">Middle Name</span></label>
+                                        <label class="input-group-text" style="width:110px;"><span id="lblFirstName">First Name </span><span class="text-danger asteris-requiered">*</span></label>
                                     </div>
-                                    <input type="text" id="MiddleName" name="MiddleName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-MiddleName" autocomplete="off">
+                                    <input type="text" id="FirstName" name="FirstName" class="form-control input isNewCusomre" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-FirstName" data-parsley-required autocomplete="off">
                                 </div>
-                                <div id="err-MiddleName"></div>
+                                <div id="err-FirstName"></div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span id="lblLastName">Last Name </span><span class="text-danger asteris-requiered">*</span></label>
                                     </div>
-                                    <input type="text" id="LastName" name="LastName" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-LastName" data-parsley-required autocomplete="off">
+                                    <input type="text" id="LastName" name="LastName" class="form-control input isNewCusomre" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-LastName" data-parsley-required autocomplete="off">
                                 </div>
                                 <div id="err-LastName"></div>
                             </div>
@@ -85,9 +82,20 @@
                             <div class="col-sm-6">
                                 <div class="input-group input-group-sm m-b-5">
                                     <div class="input-group-prepend">
+                                        <label class="input-group-text" style="width:110px;"><span id="lblMiddleName">Middle Name</span></label>
+                                    </div>
+                                    <input type="text" id="MiddleName" name="MiddleName" class="form-control input isNewCusomre" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-MiddleName" autocomplete="off">
+                                </div>
+                                <div id="err-MiddleName"></div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm-6">
+                                <div class="input-group input-group-sm m-b-5">
+                                    <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span>Email</span></label>
                                     </div>
-                                    <input type="text" id="EmailAddress" name="EmailAddress" class="form-control input" data-parsley-maxlength="100" maxlength="100" data-parsley-type="email" data-parsley-errors-container="#err-EmailAddress" autocomplete="off">
+                                    <input type="text" id="EmailAddress" name="EmailAddress" class="form-control input isNewCusomre" data-parsley-maxlength="100" maxlength="100" data-parsley-type="email" data-parsley-errors-container="#err-EmailAddress" autocomplete="off">
                                 </div>
                                 <div id="err-EmailAddress"></div>
                             </div>
@@ -96,7 +104,7 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span>Contact No</span></label>
                                     </div>
-                                    <input type="text" id="ContactNo" name="ContactNo" class="form-control input" data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-ContactNo" autocomplete="off">
+                                    <input type="text" id="ContactNo" name="ContactNo" class="form-control input isNewCusomre" data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-ContactNo" autocomplete="off">
                                 </div>
                                 <div id="err-ContactNo"></div>
                             </div>
@@ -107,7 +115,7 @@
                                     <div class="input-group-prepend">
                                         <label class="input-group-text" style="width:110px;"><span>Password </span><span class="text-danger asteris-requiered">*</span></label>
                                     </div>
-                                    <input type="password" id="Password" name="Password" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-Password" data-parsley-required autocomplete="off">
+                                    <input type="password" id="Password" name="Password" class="form-control input isNewCusomre" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-Password" data-parsley-required autocomplete="off">
                                 </div>
                                 <div id="err-Password"></div>
                             </div>

@@ -4,6 +4,7 @@
     var tblWalkIn = "";
     var tblService = "";
     var $H = $Helper();
+    var IsNewCustomer = true;
     $(document).ready(function () {
         drawDatatables();
 
@@ -41,6 +42,28 @@
             tblWalkIn.ajax.reload(null, false);
         });
 
+        $('#btnGo').click(function () {
+            if (!IsNewCustomer) {
+                ajax.formAction = '/Transaction/WalkIn/GetCustomer';
+                ajax.jsonData = { ID: $(this).val() };
+                ajax.sendData().then(function () {
+                    ajax.populateToFormInputs(ajax.responseData, "#frmWalkIn");
+                });
+            }
+        });
+        $('#btnNewCustomer').click(function () {
+            if (IsNewCustomer) {
+                IsNewCustomer = false;
+                $(".isNewCusomre").attr("readonly", "true");
+                $("#btnNewCustomerLabel").text("Create new account")
+                $('#btnGo').show();
+            } else {
+                IsNewCustomer = true;
+                $(".isNewCusomre").removeAttr("readonly");
+                $("#btnNewCustomerLabel").text("Have an account")
+                $('#btnGo').hide();
+            }
+        });
         $("#btnAdd").click(function () {
             $("#mdlWalkIn").modal("show");
             tblWalkIn.ajax.reload(null, false);
@@ -80,10 +103,10 @@
                 ajax.jsonData = {
                     data: data,
                     Detail: Detail,
+                    IsNewCustomer: IsNewCustomer,
                 };
                 ajax.sendData().then(function () {
-                    tblWalkIn.ajax.reload(null, false);
-                    tblService.ajax.reload(null, false);
+                    cancelForm(); cancelTbl();
                 });
             } else {
                 ajax.showError("Please check the checkbox in the table");
@@ -100,16 +123,17 @@
                 searching: false,
                 "pageLength": 25,
                 "ajax": {
-                    "url": "/MasterMaintenance/WalkInMaster/GetWalkInList",
+                    "url": "/Transaction/WalkIn/GetWalkInList",
                     "type": "GET",
                     "datatype": "json",
                 },
                 dataSrc: "data",
                 select: true,
                 columns: [
-                    { title: "WalkInID", data: "WalkInID" },
+                    { title: "JONo", data: "JONo" },
+                    { title: "UserID", data: 'UserID' },
                     { title: "FullName", data: 'FullName' },
-                    { title: "Position", data: 'PositionName' },
+                    { title: "Service", data: 'ServiceName' },
                 ],
             })
         }
@@ -151,8 +175,12 @@
         $("#mdlWalkIn").modal("show");
     }
     function cancelForm() {
-        ajax.clearFromData("frmWalkIn");
+        IsNewCustomer = true;
+        $(".isNewCusomre").removeAttr("readonly");
+        $("#btnNewCustomerLabel").text("Have an account")
+        $('#btnGo').hide();
         $('#WalkInID').prop('readonly', false);
+        ajax.clearFromData("frmWalkIn");
         $("#mdlWalkInTitle").text(" Create WalkIn");
         $("#btnSave .btnLabel").text(" Save");
         $("#Password").val("");
@@ -162,5 +190,7 @@
     function cancelTbl() {
         $('#btnEdit').attr("disabled", "disabled");
         $('#btnDelete').attr("disabled", "disabled");
+        tblWalkIn.ajax.reload(null, false);
+        tblService.ajax.reload(null, false);
     }
 })();

@@ -1,146 +1,90 @@
 ﻿"use strict";
 (function () {
     var ajax = $D();
-    var tblWorker = "";
+    var tblAssignWorker = "";
     var $H = $Helper();
     $(document).ready(function () {
         drawDatatables();
 
-        $('#Position').select2({
-            ajax: {
-                url: "/General/GetSelect2Data",
-                data: function (params) {
-                    return {
-                        q: params.term,
-                        id: 'ID',
-                        text: 'Value',
-                        table: 'mGeneral',
-                        db: 'CarService',
-                        condition: ' AND IsDeleted=0 AND TypeID = 1',
-                        display: 'id&text',
-                    };
-                },
-            },
-            placeholder: '-Please Select-',
-            theme: 'bootstrap4',
-            width: 'resolve'
+        
+        $("#tblAssignWorker tbody").on("click", '.btnAssign', function () {
+            tblAssignWorker.ajax.reload(null, false);
         });
 
-        $('#tblWorker tbody').on('click', 'tr', function (e) {
-            switch (e.target.localName) {
-                case "button":
-                    break;
-                case "span":
-                    break;
-                case "checkbox":
-                    break;
-                case "i":
-                    break;
-                case "textbox":
-                    break;
-                case "input":
-                    break;
-                default:
-                    var data = tblWorker.row($(this)).data();
-                    if ($.trim(data) != "") {
-                        if ($(this).hasClass('selected')) {
-                            Edit();
-                        }
-                        else {
-                            tblWorker.$('tr.selected').removeClass('selected');
-                            $(this).addClass('selected');
-                            $('#btnEdit').removeAttr("disabled");
-                            $('#btnDelete').removeAttr("disabled");
-                        }
-                    }
-                    break;
-            }
-        });
-        $("#tblWorker").on("change", '.columnSearch', function () {
-            tblWorker.ajax.reload(null, false);
-        });
-
-        $("#btnAdd").click(function () {
-            $("#mdlWorker").modal("show");
-            tblWorker.ajax.reload(null, false);
-            cancelTbl();
-            cancelForm();
-        });
-        $('#btnEdit').click(function () {
-            Edit();
-        });
-        $('#btnDelete').click(function () {
-            var data = tblWorker.rows('.selected').data()[0];
-            ajax.msg = "Are you sure you want to delete this Worker?";
-            ajax.confirmAction().then(function (approve) {
-                if (approve) {
-                    ajax.formAction = '/MasterMaintenance/WorkerMaster/DeleteWorker';
-                    ajax.jsonData = { ID: data.ID };
-                    ajax.sendData().then(function () {
-                        tblWorker.ajax.reload(null, false);
-                        cancelTbl();
-                        cancelForm();
-                    });
-                }
-            });
-        });
-        $("#frmWorker").submit(function (e) {
+        $("#btnSave").click(function (e) {
             e.preventDefault();
-            ajax.formData = $('#frmWorker').serializeArray();
-            ajax.formAction = '/MasterMaintenance/WorkerMaster/SaveWorker';
-            ajax.setJsonData().sendData().then(function () {
-                tblWorker.ajax.reload(false);
+            ajax.formAction = '/Transaction/AssignWorker/DeleteWorker';
+            ajax.jsonData = { ID: data.ID };
+            ajax.sendData().then(function () {
+                tblWorker.ajax.reload(null, false);
                 cancelTbl();
                 cancelForm();
             });
         });
-        $("#FirstName, #MiddleName, #LastName").blur(function () {
-            $(this).val($Helper().MakeFirstLetterUpper($(this).val()));
-        });
     });
 
     function drawDatatables() {
-        if (!$.fn.DataTable.isDataTable('#tblWorker')) {
-            tblWorker = $('#tblWorker').DataTable({
+        if (!$.fn.DataTable.isDataTable('#tblAssignWorker')) {
+            tblAssignWorker = $('#tblAssignWorker').DataTable({
                 searching: false,
                 "pageLength": 25,
                 "ajax": {
-                    "url": "/MasterMaintenance/WorkerMaster/GetWorkerList",
+                    "url": "/Transaction/AssignWorker/GetAssignWorkerList",
                     "type": "GET",
                     "datatype": "json",
                 },
                 dataSrc: "data",
                 select: true,
                 columns: [
-                    { title: "WorkerID", data: "WorkerID" },
+                    { title: "JONo", data: "JONo" },
+                    { title: "UserID", data: 'UserID' },
                     { title: "FullName", data: 'FullName' },
-                    { title: "Position", data: 'PositionName' },
+                    { title: "Service", data: 'ServiceName' },
+                    {
+                        title: "", data: function (data) {
+                            return '<button type="button" class="btn btn-sm btn-green btn-block btnAssign">Assign</button>'
+                        }
+                    },
                 ],
             })
         }
-    }
-    function Edit() {
-        var data = tblWorker.rows('.selected').data()[0];
-        $("#frmWorker").parsley().reset();
-        $("#mdlWorkerTitle").text(" Update Worker");
-        $('#WorkerID').prop('readonly', true);
-        $("#btnSave .btnLabel").text(" Update");
-        ajax.populateToFormInputs(data, "#frmWorker");
-        $("#Password").val("");
-        $("#Password").attr('required', false);
-        $("#mdlWorker").modal("show");
-    }
-    function cancelForm() {
-        ajax.clearFromData("frmWorker");
-        $('#WorkerID').prop('readonly', false);
-        $("#mdlWorkerTitle").text(" Create Worker");
-        $("#btnSave .btnLabel").text(" Save");
-        $("#Password").val("");
-        $("#Password").attr('required', true);
-        $("#mdlWorker").modal("hide");
-    }
-    function cancelTbl() {
-        $('#btnEdit').attr("disabled", "disabled");
-        $('#btnDelete').attr("disabled", "disabled");
+        if (!$.fn.DataTable.isDataTable('#tblService')) {
+            tblService = $('#tblService').DataTable({
+                searching: false,
+                "pageLength": 25,
+                "ajax": {
+                    "url": "/MasterMaintenance/ServiceMaster/GetServiceList",
+                    "type": "GET",
+                    "datatype": "json",
+                },
+                dataSrc: "data",
+                select: true,
+                columns: [
+                    { title: "Service", data: "Service" },
+                    {
+                        title: "Worker", data: function () {
+                            return "<select type='text' class='form-control input WorkerID' style='width: 100%'  data-Startdate='" + data.Startdate +"' autocomplete='off'/>";
+                        }
+                    },
+                ],
+                fnDrawCallback: function () {
+                    $('.WorkerID').select2({
+                        ajax: {
+                            url: "/General/GetSelect2SP",
+                            data: function (params) {
+                                return {
+                                    q: params.term,
+                                    sp: "EXEC tAssignWorker_Worker @Startdate = '" + $(this).attr("data-Startdate") + "'",
+                                };
+                            },
+                        },
+                        placeholder: '-Please Select-',
+                        theme: 'bootstrap4',
+                        width: 'resolve'
+                    });
+                    LoadInputs();
+                },
+            })
+        }
     }
 })();

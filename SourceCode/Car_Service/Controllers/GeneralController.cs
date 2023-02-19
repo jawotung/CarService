@@ -111,7 +111,6 @@ namespace CarService.Controllers
             string val = Request.QueryString["q"];
             string sp = Request.QueryString["sp"];
             string db = Request.QueryString["db"];
-            string display = Request.QueryString["display"];
 
             try
             {
@@ -122,7 +121,7 @@ namespace CarService.Controllers
                     {
                         try
                         {
-                            cmdSql.CommandType = CommandType.StoredProcedure;
+                            cmdSql.CommandType = CommandType.Text;
                             cmdSql.CommandText = sp;
                             cmdSql.Parameters.Clear();
                             cmdSql.ExecuteNonQuery();
