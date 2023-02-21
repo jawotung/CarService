@@ -218,7 +218,9 @@ namespace CarService.Areas.Transaction.Controllers
 
                 return Json(new { success = false, msg = errmsg }, JsonRequestBehavior.AllowGet);
             }
-            if (ModelErrors.Count != 0)
+            if
+            
+            (ModelErrors.Count != 0)
                 return Json(new { success = false, msg = ModelErrors });
             else
             {

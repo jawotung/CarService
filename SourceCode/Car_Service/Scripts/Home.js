@@ -3,30 +3,38 @@
     const sampleServices = ["Replace air filter", "Wiper blades replacement", "Oil filter changed", "Scheduled maintenance"
         , "New tires", "Battery replacement", "Brake work", "Antifreeze added"];
     var Customer = $D();
+    var Formatter = $F();
     var selectedServices = [];
     var tblCustomerService = "";
     $(document).ready(function () {
         initializePage();
-        $("#registerForm").submit(function (e) {
-            e.preventDefault();
-            registerNewAccount()
-        });
-        $("#frmCustomerServiceForm").submit(function (e) {
-            e.preventDefault();
-            registerNewAccount()
-        });
         $("#btnServiceCart").click(function (e) {
             var selectedSetvicesCount = $("#divServiceRow").find(".service-selected").length;
             if (selectedSetvicesCount <= 0) {
-                Customer.showWarning("Please select atleast 1 service(s)."); // Uncomment this once plugins fixed
-                //alert("Please select atleast 1 service(s).");
+                Customer.showWarning("Please select atleast 1 service(s).");
                 return;
             }
             $("#mdlCustomerServiceForm").modal("show");
             drawDatatables();
         });
+        $("#frmCustomerServiceForm").submit(function (e) {
+            e.preventDefault();
+            saveOnlineJobOrder()
+        });
+        $("#LoginLink").click(function (e) {
+            e.preventDefault();
+            $("#mdlLoginForm").modal("show");
+        });
     });
     // FUNCTIONS HERE #################################################################
+    function cancelForm() {
+        selectedServices = [];
+        Customer.clearFromData("frmCustomerServiceForm");
+        $('#CustomerServiceFormID').prop('readonly', false);
+        $("#CustomerServiceFormTitle").text(" Customer Service Form");
+        $("#btnSave .btnLabel").text(" Save");
+        $("#mdlCustomerServiceForm").modal("hide");
+    }
     function drawDatatables() {
         if (!$.fn.DataTable.isDataTable('#tblCustomerServiceForm')) {
             tblCustomerService= $('#tblCustomerServiceForm').DataTable({
@@ -37,15 +45,14 @@
                 sorting: false,
                 ordering: false,
                 columns: [
-                    { title: "No #", data: "ID", width: "7%" },
+                    { title: "No #", data: "ServiceID", width: "10%" },
                     { title: "ServiceName", data: "ServiceName", width: "80%" },
-                    /*
                     {
-                        title: "Action", data: function (data) {
-                            return '<button type="button" class="btn btn-sm btn-danger btnRemove"><i class="fa fa-trash"></i></button>';
-                        }, width: "8%"
-                    },
-                    */
+                        title: "Amount", data: function (data) {
+                            Formatter.dataToFormat = +data.Price;
+                            return Formatter.formatDecimal(0);
+                        }, width: "10%"
+                    }
                 ],
                 initComplete: function () {
                     $("#tblCustomerServiceForm tbody").on("click", "tr", function (e) {
@@ -107,6 +114,13 @@
         });
         getCustomerPageInfo();
     }
+    function flSerializeToArray(formArray) {
+        var returnArray = {};
+        for (var i = 0; i < formArray.length; i++) {
+            returnArray[formArray[i]['name']] = formArray[i]['value'];
+        }
+        return returnArray;
+    }
     function getCustomerPageInfo() {
         Customer.formAction = "/Home/GetServices";
         Customer.sendData().then(function () {
@@ -117,8 +131,10 @@
 
             var html = "";
             for (var i = 0; i < data.length; i++) {
+                Formatter.dataToFormat = data[i].Amount;
+                var serviceAmount = Formatter.formatDecimal(0);
                 html += '<div class="col-lg-4 col-sm-6 mb-4">' +
-                            '<div class="portfolio-item" data-id="' + data[i].ID + '">' + // Temporary id due to no DB yet
+                            '<div class="portfolio-item" data-id="' + data[i].ID + '" data-servicename="' + data[i].ServiceName + '" data-amount="' + data[i].Amount + '">' + // Temporary id due to no DB yet
                                 '<a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">' +
                                     '<div class="portfolio-hover">' +
                                         '<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>' +
@@ -127,8 +143,8 @@
                                 '</a>' +
                                 '<div class="portfolio-caption">' +
                                     '<div class="portfolio-caption-heading">' + data[i].ServiceName + '</div>' +
-                                    '<div class="portfolio-caption-subheading text-muted">P ' + data[i].Amount  + '</div>' +
-                                    '<div class="portfolio-caption-subheading text-muted">P ' + data[i].DurationFrom  + ' ~ ' + data[i].DurationTo + '</div>' +
+                                    '<div class="portfolio-caption-subheading text-muted">P ' + serviceAmount + '</div>' +
+                                    '<div class="portfolio-caption-subheading text-muted">' + data[i].DurationFrom  + ' ~ ' + data[i].DurationTo + '</div>' +
                                 '</div>' +
                             '</div>' +
                         '</div>';
@@ -136,58 +152,47 @@
             $("#divServiceRow").append(html);
 
             $(".portfolio-hover").click(function () {
-                var $el = $(this);
-                var dataID = $el.closest("div.portfolio-item").attr("data-id");
+                var $el = $(this)
+                    , $divPortItem = $el.closest("div.portfolio-item");
+
+                var serviceID = $divPortItem.attr("data-id")
+                    , serviceName = $divPortItem.attr("data-servicename")
+                    , amount = $divPortItem.attr("data-amount");
+
                 if (!$el.closest("div.portfolio-item").hasClass("service-selected")) {
                     $el.closest("a.portfolio-link").next("div.portfolio-caption").css("background", "#ffc800");
-                    $el.closest("div.portfolio-item").css("border", "2px solid #ffc800");
-                    $el.closest("div.portfolio-item").addClass("service-selected");
+                    $divPortItem.css("border", "2px solid #ffc800");
+                    $divPortItem.addClass("service-selected");
 
                     selectedServices.push({
-                        ID: dataID,
-                        ServiceName: sampleServices[parseInt(dataID) - 1]
+                        ServiceID: serviceID,
+                        ServiceName: serviceName,
+                        Price: amount
                     });
                 } else {
                     $el.closest("a.portfolio-link").next("div.portfolio-caption").css("background", "#fff");
-                    $el.closest("div.portfolio-item").css("border", "");
-                    $el.closest("div.portfolio-item").removeClass("service-selected");
+                    $divPortItem.css("border", "");
+                    $divPortItem.removeClass("service-selected");
 
-                    selectedServices = selectedServices.filter(x => x.ID != parseInt(dataID));
+                    selectedServices = selectedServices.filter(x => x.ServiceID != parseInt(serviceID));
                 }
             });
         });
     }
-    function registerNewAccount() {
-        Customer.formData = $('#registerForm').serializeArray();
-        Customer.formAction = '/Home/SaveCustomer';
-        Customer.setJsonData();
-        Customer.sendData().then(function () {
-            $(".form-control").val("");
-        });
-    }
     function saveOnlineJobOrder() {
-        var jsonData = [];
-        Customer.formData = $('#frmCustomerServiceForm').serializeArray();
-        jsonData = Customer.selectedSetvicesCount();
-
+        var headerData = flSerializeToArray($('#frmCustomerServiceForm').serializeArray());
         Customer.formAction = '/Home/SaveOnlineJobOrder';
-        Customer.jsonData = { data: data };
+        Customer.jsonData = {
+            HeaderData: headerData,
+            ServiceDetail: selectedServices
+        };
         Customer.sendData().then(function () {
-            tblCustomerService.ajax.reload(false);
             cancelForm();
-            cancelTbl();
+            $(".portfolio-hover").closest("a.portfolio-link").next("div.portfolio-caption").css("background", "#ffff")
+            $(".portfolio-hover").closest("div.portfolio-item").css("border", "");
+            tblCustomerService.ajax.reload(false);
+            $("#mdlLoginForm").modal("hide");
         });
-    }
-    function cancelForm() {
-        Customer.clearFromData("frmCustomerServiceForm");
-        $('#CustomerServiceFormID').prop('readonly', false);
-        $("#CustomerServiceFormTitle").text(" Customer Service Form");
-        $("#btnSave .btnLabel").text(" Save");
-        $("#mdlCustomerServiceForm").modal("hide");
-    }
-    function cancelTbl() {
-        $('#btnEdit').attr("disabled", "disabled");
-        $('#btnDelete').attr("disabled", "disabled");
     }
 })();
 

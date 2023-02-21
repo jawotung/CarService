@@ -112,12 +112,27 @@ namespace CarServiceSystem.Controllers
             };
         }
 
-        public ActionResult SaveOnlineJobOrder(OnlineJobOrder data)
+        public ActionResult SaveOnlineJobOrder(OnlineJobOrder HeaderData, List<MJO_Detail> ServiceDetail)
         {
             int iType = 1; // Default as Online Job Order Type
+            int iIsNewCustomer = 1; // Default as New Customer
 
             try
             {
+                #region CreateDataTable
+                DataTable dt = new DataTable();
+                dt.Columns.Add(new DataColumn("ServiceID", typeof(int)));
+                dt.Columns.Add(new DataColumn("Price", typeof(string)));
+
+                foreach (MJO_Detail x in ServiceDetail)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ServiceID"] = x.ServiceID;
+                    dr["Price"] = common.FgNullToString(x.Price);
+                    dt.Rows.Add(dr);
+                }
+                #endregion
+
                 using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ToString()))
                 {
                     myConnection.Open();
@@ -125,17 +140,24 @@ namespace CarServiceSystem.Controllers
                     {
                         myCommand.CommandType = CommandType.StoredProcedure;
                         myCommand.CommandText = "tCustomerJobOrder_InsertUpdate";
+
                         myCommand.Parameters.Clear();
-                        myCommand.Parameters.AddWithValue("@UserID", data.UserID);
-                        myCommand.Parameters.AddWithValue("@Password", common.FgDBString(data.Password));
-                        myCommand.Parameters.AddWithValue("@FirstName", common.FgDBString(data.FirstName));
-                        myCommand.Parameters.AddWithValue("@MiddleName", common.FgDBString(data.MiddleName));
-                        myCommand.Parameters.AddWithValue("@LastName", common.FgDBString(data.LastName));
-                        myCommand.Parameters.AddWithValue("@ContactNo", common.FgDBString(data.ContactNo));
-                        myCommand.Parameters.AddWithValue("@EmailAddress", common.FgDBString(data.EmailAddress));
+                        myCommand.Parameters.AddWithValue("@IsNewCustomer", iIsNewCustomer);
+                        myCommand.Parameters.AddWithValue("@UserID", common.FgNullToString(HeaderData.UserID));
+                        myCommand.Parameters.AddWithValue("@Password", common.FgNullToString(HeaderData.Password));
+                        myCommand.Parameters.AddWithValue("@FirstName", common.FgNullToString(HeaderData.FirstName));
+                        myCommand.Parameters.AddWithValue("@MiddleName", common.FgNullToString(HeaderData.MiddleName));
+                        myCommand.Parameters.AddWithValue("@LastName", common.FgNullToString(HeaderData.LastName));
+                        myCommand.Parameters.AddWithValue("@ContactNo", common.FgNullToString(HeaderData.ContactNo));
+                        myCommand.Parameters.AddWithValue("@EmailAddress", common.FgNullToString(HeaderData.EmailAddress));
                         myCommand.Parameters.AddWithValue("@Type", iType);
-                        myCommand.Parameters.AddWithValue("@Remarks", common.FgDBString(data.Remarks));
-                        myCommand.Parameters.AddWithValue("@CreateID", Session["ID"]);
+                        myCommand.Parameters.AddWithValue("@Startdate", common.FgNullToString(HeaderData.Startdate));
+                        myCommand.Parameters.AddWithValue("@Remarks", common.FgNullToString(HeaderData.Remarks));
+
+                        SqlParameter tvpParam = myCommand.Parameters.AddWithValue("@dt_tCustomerJobOrder_Detail", dt);
+                        tvpParam.SqlDbType = SqlDbType.Structured;
+                        tvpParam.TypeName = "dt_tCustomerJobOrder_Detail";
+
                         SqlParameter ErrorMessage = myCommand.Parameters.Add("@ErrorMessage", SqlDbType.VarChar, 1000);
                         SqlParameter Error = myCommand.Parameters.Add("@Error", SqlDbType.Bit);
 

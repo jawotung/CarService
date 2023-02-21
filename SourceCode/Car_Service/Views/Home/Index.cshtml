@@ -58,7 +58,7 @@
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                     @*<li class="nav-item"><a class="nav-link" href="#register">Register</a></li>*@
-                    <li class="nav-item"><a class="nav-link" href="#contact">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href=";" id="LoginLink">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -248,8 +248,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <input class="form-control is-invalid" id="name" type="text" placeholder="Your UserID *" data-sb-validations="required" data-sb-can-submit="no">-->
-                            @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
-                        <!--</div>
+    @*<div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>*@
+    <!--</div>
                         <div class="form-group mb-md-4">
                             <input class="form-control" id="FirstName" placeholder="Your FirstName *" data-sb-validations="required" data-sb-can-submit="no">
                             <div class="invalid-feedback" data-sb-feedback="phone:required">A FirstName is required...</div>
@@ -282,40 +282,7 @@
             </form>
         </div>
     </section>-->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8">
-                            <div class="modal-body">
-                                <!-- Project details-->
-                                <h2 class="text-uppercase">Project Name</h2>
-                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/1.jpg" alt="..." />
-                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                <ul class="list-inline">
-                                    <li>
-                                        <strong>Client:</strong>
-                                        Threads
-                                    </li>
-                                    <li>
-                                        <strong>Category:</strong>
-                                        Illustration
-                                    </li>
-                                </ul>
-                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                    <i class="fas fa-xmark me-1"></i>
-                                    Close Project
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Customer Service Form -->
     <div class="modal fade " id="mdlCustomerServiceForm" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-xl" id="" role="document">
             <div class="modal-content">
@@ -332,11 +299,11 @@
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm m-b-5">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" style="width:110px;"><span id="lblCustomerServiceFormID">OnlineID </span><span class="text-danger asteris-requiered">*</span></label>
+                                            <label class="input-group-text" style="width:110px;"><span id="lblUserID">User ID</span><span class="text-danger asteris-requiered">*</span></label>
                                         </div>
-                                        <input type="text" id="CustomerServiceFormID" name="CustomerServiceFormID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-CustomerServiceFormID" autocomplete="off">
+                                        <input type="text" id="UserID" name="UserID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-UserID" autocomplete="off">
                                     </div>
-                                    <div id="err-CustomerServiceFormID"></div>
+                                    <div id="err-UserID"></div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm m-b-5">
@@ -372,23 +339,32 @@
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm m-b-5">
                                         <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span>Password </span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <input type="password" id="Password" name="Password" class="form-control input isNewCusomre" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-Password" data-parsley-required autocomplete="off">
+                                    </div>
+                                    <div id="err-Password"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
                                             <label class="input-group-text" style="width:110px;"><span>Email</span></label>
                                         </div>
                                         <input type="text" id="Email" name="Email" class="form-control input" data-parsley-maxlength="100" maxlength="100" data-parsley-type="email" data-parsley-errors-container="#err-Email" autocomplete="off">
                                     </div>
                                     <div id="err-Email"></div>
                                 </div>
+                            </div>
+                            <div class="row ">
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm m-b-5">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" style="width:110px;"><span>Contact No</span></label>
+                                            <label class="input-group-text" style="width:110px;"><span>Contact No</span><span class="text-danger asteris-requiered">*</span></label>
                                         </div>
-                                        <input type="text" id="ContactNo" name="ContactNo" class="form-control input" data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-ContactNo" autocomplete="off">
+                                        <input type="text" id="ContactNo" name="ContactNo" class="form-control input" data-parsley-maxlength="12" maxlength="12" data-parsley-errors-container="#err-ContactNo" data-parsley-required autocomplete="off">
                                     </div>
                                     <div id="err-ContactNo"></div>
                                 </div>
-                            </div>
-                            <div class="row ">
                                 <div class="col-sm-6">
                                     <div class="input-group input-group-sm m-b-5">
                                         <div class="input-group-prepend">
@@ -402,25 +378,75 @@
                                     </div>
                                     <div id="err-Gender"></div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <div class="input-group input-group-sm mb-1">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group input-group-sm m-b-5">
                                         <div class="input-group-prepend">
-                                            <label class="input-group-text" style="width:110px;"><span>Position</span><span class="text-danger asteris-requiered">*</span></label>
+                                            <label class="input-group-text" style="width:110px; background: none;"><span class="lblRemarks">Remarks</span></label>
                                         </div>
-                                        <select class="form-control input selectpicker selectpicker-sm clear" style="width: 50%" id="Position" name="Position" data-parsley-required data-parsley-errors-container="#err-Position"></select>
                                     </div>
-                                    <div id="err-Position"></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control input" cols="500" rows="3"></textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="table-responsive mt-2">
-                            <table id="tblCustomerServiceForm" class="table table-bordered tbl-100p" data-adjust="-30"></table>
+                            <table id="tblCustomerServiceForm" class="table table-bordered tbl-100p" data-adjust="-30" width="100%"></table>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" id="ID" name="ID" class="input">
                         <div class="ReadAndWrite">
                             <button type="submit" class="btn btn-primary" id="btnSave"> <span class="fa fa-save"></span> <span class="btnLabel btnSaveLabel"> Save</span></button>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="fa fa-times"></span> <span class="btnLabel btnCloseLabel"> Close</span></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Login Form -->
+    <div class="modal fade " id="mdlLoginForm" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-md" id="" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="mdlCustomerServiceFormTitle"> Login</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form data-parsley-validate="true" id="frmLoginForm">
+                    <div class="modal-body">
+                        <div id="divForm">
+                            <div class="row ">
+                                <div class="col-sm-12">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span id="lblLoginUserID">User ID</span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <input type="text" id="LoginUserID" name="LoginUserID" class="form-control input" style="max-width:145px" data-parsley-required data-parsley-maxlength="15" maxlength="15" data-parsley-errors-container="#err-LoginUserID" autocomplete="off">
+                                    </div>
+                                    <div id="err-LoginUserID"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group input-group-sm m-b-5">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" style="width:110px;"><span id="lblLoginPassword">Password </span><span class="text-danger asteris-requiered">*</span></label>
+                                        </div>
+                                        <input type="text" id="LoginPassword" name="LoginPassword" class="form-control input" data-parsley-maxlength="50" maxlength="50" data-parsley-errors-container="#err-LoginPassword" data-parsley-required autocomplete="off">
+                                    </div>
+                                    <div id="err-LoginPassword"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="ReadAndWrite">
+                            <button type="submit" class="btn btn-primary" id="btnSave"> <span class="fa fa-save"></span> <span class="btnLabel btnSaveLabel"> Login</span></button>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="fa fa-times"></span> <span class="btnLabel btnCloseLabel"> Close</span></button>
                     </div>
