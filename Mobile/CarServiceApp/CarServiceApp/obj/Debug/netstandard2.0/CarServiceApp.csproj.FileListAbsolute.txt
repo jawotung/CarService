@@ -1,0 +1,14 @@
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\bin\Debug\netstandard2.0\CarServiceApp.deps.json
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\bin\Debug\netstandard2.0\CarServiceApp.dll
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\bin\Debug\netstandard2.0\ref\CarServiceApp.dll
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\bin\Debug\netstandard2.0\CarServiceApp.pdb
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\CarServiceApp.csprojAssemblyReference.cache
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\CarServiceApp.AssemblyInfoInputs.cache
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\CarServiceApp.AssemblyInfo.cs
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\CarServiceApp.csproj.CoreCompileInputs.cache
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\CarServiceApp.dll
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\ref\CarServiceApp.dll
+C:\Users\ユーザー\Desktop\Test\CarService\Mobile\CarServiceApp\CarServiceApp\obj\Debug\netstandard2.0\CarServiceApp.pdb
