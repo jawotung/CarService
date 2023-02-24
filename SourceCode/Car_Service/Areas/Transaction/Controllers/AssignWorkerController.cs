@@ -89,6 +89,7 @@ namespace CarService.Areas.Transaction.Controllers
         public ActionResult GetServiceList()
         {
             List<MWalkIn> data = new List<MWalkIn>();
+            int ID = Request["ID"] == "" ? 0 : Convert.ToInt32(Request["ID"]);
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ConnectionString.ToString()))
@@ -102,6 +103,7 @@ namespace CarService.Areas.Transaction.Controllers
                             cmdSql.CommandType = CommandType.StoredProcedure;
                             cmdSql.CommandText = "tAssignWorker_Service";
                             cmdSql.Parameters.Clear();
+                            cmdSql.Parameters.AddWithValue("@ID", ID);
                             using (SqlDataReader sdr = cmdSql.ExecuteReader())
                             {
                                 while (sdr.Read())
@@ -143,20 +145,19 @@ namespace CarService.Areas.Transaction.Controllers
             return Json(new { data, draw = Request["draw"], recordsTotal = data.Count, recordsFiltered = data.Count }, JsonRequestBehavior.AllowGet);
 
         }
-        public ActionResult SaveWalkIn(List<MAssignWorker> Detail)
+        public ActionResult SaveWalkIn(List<MAssignWorker> data)
         {
-            /*
             try
             {
                 #region CreateDataTable
                 DataTable dt = new DataTable();
-                dt.Columns.Add(new DataColumn("ServiceID", typeof(int)));
-                dt.Columns.Add(new DataColumn("Price", typeof(string)));
-                foreach (MJO_Detail x in Detail)
+                dt.Columns.Add(new DataColumn("JODetailID", typeof(int)));
+                dt.Columns.Add(new DataColumn("WorkerID", typeof(int)));
+                foreach (MAssignWorker x in data)
                 {
                     DataRow dr = dt.NewRow();
-                    dr["ServiceID"] = x.ServiceID;
-                    dr["Price"] = common.FgNullToString(x.Price);
+                    dr["JODetailID"] = x.JODetailID;
+                    dr["WorkerID"] = x.WorkerID;
                     dt.Rows.Add(dr);
                 }
                 #endregion
@@ -170,20 +171,10 @@ namespace CarService.Areas.Transaction.Controllers
                             cmdSql.CommandType = CommandType.StoredProcedure;
                             cmdSql.CommandText = "tCustomerJobOrder_InsertUpdate";
                             cmdSql.Parameters.Clear();
-                            cmdSql.Parameters.AddWithValue("@IsNewCustomer", Convert.ToInt32(IsNewCustomer));
-                            cmdSql.Parameters.AddWithValue("@UserID", common.FgNullToString(data.UserID));
-                            cmdSql.Parameters.AddWithValue("@Password", common.FgNullToString(data.Password));
-                            cmdSql.Parameters.AddWithValue("@FirstName", common.FgNullToString(data.FirstName));
-                            cmdSql.Parameters.AddWithValue("@MiddleName", common.FgNullToString(data.MiddleName));
-                            cmdSql.Parameters.AddWithValue("@LastName", common.FgNullToString(data.LastName));
-                            cmdSql.Parameters.AddWithValue("@ContactNo", common.FgNullToString(data.ContactNo));
-                            cmdSql.Parameters.AddWithValue("@EmailAddress", common.FgNullToString(data.EmailAddress));
-                            cmdSql.Parameters.AddWithValue("@Type", 2);
-                            cmdSql.Parameters.AddWithValue("@Startdate", common.FgNullToString(data.Startdate));
-                            cmdSql.Parameters.AddWithValue("@Remarks", common.FgNullToString(data.Remarks));
-                            SqlParameter tvpParam = cmdSql.Parameters.AddWithValue("@dt_tCustomerJobOrder_Detail", dt);
+                            cmdSql.Parameters.AddWithValue("@CreateID", Session["WorkerID"]);
+                            SqlParameter tvpParam = cmdSql.Parameters.AddWithValue("@dt_tAssignWorker", dt);
                             tvpParam.SqlDbType = SqlDbType.Structured;
-                            tvpParam.TypeName = "dt_tCustomerJobOrder_Detail";
+                            tvpParam.TypeName = "dt_tAssignWorker";
                             SqlParameter ErrorMessage = cmdSql.Parameters.Add("@ErrorMessage", SqlDbType.VarChar, 1000);
                             SqlParameter Error = cmdSql.Parameters.Add("@Error", SqlDbType.Bit);
 
@@ -218,16 +209,12 @@ namespace CarService.Areas.Transaction.Controllers
 
                 return Json(new { success = false, msg = errmsg }, JsonRequestBehavior.AllowGet);
             }
-            if
-            
-            (ModelErrors.Count != 0)
+            if(ModelErrors.Count != 0)
                 return Json(new { success = false, msg = ModelErrors });
             else
             {
                 return Json(new { success = true, msg = "WalkIn was successfully saved" });
             }
-            */
-            return Json(new { success = true, msg = "WalkIn was successfully saved" });
         }
     }
 }

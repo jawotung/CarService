@@ -114,6 +114,7 @@ namespace CarService
 
             RegisterMasterMaintenaceBundles(bundles, LayoutJS, LayoutCSS, TrxJS, TrxCSS, DataTblJS, DataTblCSS);
             RegisterTransactioneBundles(bundles, LayoutJS, LayoutCSS, TrxJS, TrxCSS, DataTblJS, DataTblCSS);
+            RegisterReportBundles(bundles, LayoutJS, LayoutCSS, TrxJS, TrxCSS, DataTblJS, DataTblCSS);
         }
         public static void RegisterMasterMaintenaceBundles(BundleCollection bundles, string[] LayoutJS, string[] LayoutCSS, string[] TrxJS, string[] TrxCSS, string[] DataTblJS, string[] DataTblCSS)
         {
@@ -199,6 +200,22 @@ namespace CarService
                     .Include(TrxJS)
                     .Include(
                         "~/Areas/Transaction/Scripts/WalkIn.js"
+                    )
+            );
+        }
+        public static void RegisterReportBundles(BundleCollection bundles, string[] LayoutJS, string[] LayoutCSS, string[] TrxJS, string[] TrxCSS, string[] DataTblJS, string[] DataTblCSS)
+        {
+            bundles.Add(new Bundle("~/TransactionHistory-CSS")
+                    .Include(LayoutCSS)
+                    .Include(DataTblCSS)
+                    .Include(TrxCSS)
+            );
+            bundles.Add(new Bundle("~/TransactionHistory-JS")
+                    .Include(LayoutJS)
+                    .Include(DataTblJS)
+                    .Include(TrxJS)
+                    .Include(
+                        "~/Areas/Transaction/Scripts/TransactionHistory.js"
                     )
             );
         }

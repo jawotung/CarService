@@ -1,11 +1,14 @@
 ﻿"use strict";
 (function () {
     var ajax = $D();
-    var tblOngoing = "";
+    var tblTransactionHistory = "";
     var $H = $Helper();
     $(document).ready(function () {
+        $("#StartDate").datepicker("setDate", new Date(DateMonthStart()));
+        $("#EndDate").datepicker("setDate", new Date(DateMonthEnd()));
         drawDatatables();
-        $('#tblOngoing tbody').on('click', 'tr', function (e) {
+
+        $('#tblTransactionHistory tbody').on('click', 'tr', function (e) {
             switch (e.target.localName) {
                 case "button":
                     break;
@@ -20,13 +23,13 @@
                 case "input":
                     break;
                 default:
-                    var data = tblOngoing.row($(this)).data();
+                    var data = tblTransactionHistory.row($(this)).data();
                     if ($.trim(data) != "") {
                         if ($(this).hasClass('selected')) {
                             Edit();
                         }
                         else {
-                            tblOngoing.$('tr.selected').removeClass('selected');
+                            tblTransactionHistory.$('tr.selected').removeClass('selected');
                             $(this).addClass('selected');
                             $('#btnEdit').removeAttr("disabled");
                             $('#btnDelete').removeAttr("disabled");
@@ -35,34 +38,24 @@
                     break;
             }
         });
-        $("#tblOngoing").on("change", '.columnSearch', function () {
-            tblOngoing.ajax.reload(null, false);
+        $("#tblTransactionHistory").on("change", '.columnSearch', function () {
+            tblTransactionHistory.ajax.reload(null, false);
         });
-        $("#tblOngoing").on("click", ".btnCompleted", function () {
-            var data = tblPicking.row($(this).parents('tr')).data();
-            ajax.msg = "Are you sure this service is completed?";
-            ajax.confirmAction().then(function (approve) {
-                if (approve) {
-                    ajax.formAction = '/Transaction/OngoingService/CompleteService';
-                    ajax.jsonData = { ID: data.ID };
-                    ajax.sendData().then(function () {
-                        tblOngoing.ajax.reload(null, false);
-                    });
-                }
-            });
-        });
-
     });
 
     function drawDatatables() {
-        if (!$.fn.DataTable.isDataTable('#tblOngoing')) {
-            tblOngoing = $('#tblOngoing').DataTable({
+        if (!$.fn.DataTable.isDataTable('#tblTransactionHistory')) {
+            tblTransactionHistory = $('#tblTransactionHistory').DataTable({
                 searching: false,
                 "pageLength": 25,
                 "ajax": {
-                    "url": "/Transaction/OngoingService/GetOngoingServiceList",
+                    "url": "/Transaction/TransactionHistoryService/GetTransactionHistoryServiceList",
                     "type": "GET",
                     "datatype": "json",
+                    "data": function (d) {
+                        d["StartDate"] = $("#StartDate").val();
+                        d["EndDate"] = $("#EndDate").val();
+                    }
                 },
                 dataSrc: "data",
                 select: true,

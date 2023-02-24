@@ -3,22 +3,33 @@
     var ajax = $D();
     var tblAssignWorker = "";
     var $H = $Helper();
+    var HeaderID = 0;
     $(document).ready(function () {
         drawDatatables();
-
-        
         $("#tblAssignWorker tbody").on("click", '.btnAssign', function () {
             tblAssignWorker.ajax.reload(null, false);
         });
-
+        $("#tblAssignWorker").on("click", ".btnAssign", function () {
+            var data = tblPicking.row($(this).parents('tr')).data();
+            HeaderID = data.ID;
+            tblService.ajax.reload(null, false);
+            $("#mdlAssignWorker").modal("show");
+        });
         $("#btnSave").click(function (e) {
             e.preventDefault();
-            ajax.formAction = '/Transaction/AssignWorker/DeleteWorker';
-            ajax.jsonData = { ID: data.ID };
+            var data
+            $.each($(".CheckItem:checked"), function () {
+                data.push({
+                    JODetailID: tblPicking.row(this).data().JODetailID,
+                    WorkerID: row.find('.WorkerID').val(),
+                });
+            });
+            ajax.formAction = '/Transaction/AssignWorker/SaveWalkIn';
+            ajax.jsonData = { data: data };
             ajax.sendData().then(function () {
-                tblWorker.ajax.reload(null, false);
-                cancelTbl();
-                cancelForm();
+                tblAssignWorker.ajax.reload(null, false);
+                tblService.ajax.reload(null, false);
+                $("#mdlAssignWorker").modal("hide");
             });
         });
     });
@@ -56,6 +67,9 @@
                     "url": "/MasterMaintenance/ServiceMaster/GetServiceList",
                     "type": "GET",
                     "datatype": "json",
+                    "data": function (d) {
+                        d.ID = HeaderID;
+                    }
                 },
                 dataSrc: "data",
                 select: true,
@@ -74,7 +88,7 @@
                             data: function (params) {
                                 return {
                                     q: params.term,
-                                    sp: "EXEC tAssignWorker_Worker @Startdate = '" + $(this).attr("data-Startdate") + "'",
+                                    sp: "EXEC tAssignWorker_Worker @Startdate = '" + $(this).attr("data-Startdate") + "', @Search = '" + params.term + "'",
                                 };
                             },
                         },

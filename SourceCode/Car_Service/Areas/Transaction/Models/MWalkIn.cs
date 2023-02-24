@@ -21,6 +21,8 @@ namespace CarService.Areas.Transaction.Models
         public string Enddate { get; set; }
         public string Remarks { get; set; }
         public string ServiceName { get; set; }
+        public string Worker { get; set; }
+        public int WorkerID { get; set; }
 
     }
     public class MJO_Detail
