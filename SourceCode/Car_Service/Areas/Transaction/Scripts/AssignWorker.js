@@ -2,6 +2,7 @@
 (function () {
     var ajax = $D();
     var tblAssignWorker = "";
+    var tblService = "";
     var $H = $Helper();
     var HeaderID = 0;
     $(document).ready(function () {
@@ -10,17 +11,18 @@
             tblAssignWorker.ajax.reload(null, false);
         });
         $("#tblAssignWorker").on("click", ".btnAssign", function () {
-            var data = tblPicking.row($(this).parents('tr')).data();
+            var data = tblAssignWorker.row($(this).parents('tr')).data();
             HeaderID = data.ID;
             tblService.ajax.reload(null, false);
             $("#mdlAssignWorker").modal("show");
         });
         $("#btnSave").click(function (e) {
             e.preventDefault();
-            var data
-            $.each($(".CheckItem:checked"), function () {
+            var data = [];
+            tblService.rows().every(function (index, element) {
+                var row = $(this.node());
                 data.push({
-                    JODetailID: tblPicking.row(this).data().JODetailID,
+                    JODetailID: tblService.row(this).data().JODetailID,
                     WorkerID: row.find('.WorkerID').val(),
                 });
             });
@@ -64,7 +66,7 @@
                 searching: false,
                 "pageLength": 25,
                 "ajax": {
-                    "url": "/MasterMaintenance/ServiceMaster/GetServiceList",
+                    "url": "/Transaction/AssignWorker/GetServiceList",
                     "type": "GET",
                     "datatype": "json",
                     "data": function (d) {
@@ -74,14 +76,15 @@
                 dataSrc: "data",
                 select: true,
                 columns: [
-                    { title: "Service", data: "Service" },
+                    { title: "Service", data: "ServiceName" },
                     {
-                        title: "Worker", data: function () {
+                        title: "Worker", data: function (data) {
                             return "<select type='text' class='form-control input WorkerID' style='width: 100%'  data-Startdate='" + data.Startdate +"' autocomplete='off'/>";
                         }
                     },
                 ],
                 fnDrawCallback: function () {
+
                     $('.WorkerID').select2({
                         ajax: {
                             url: "/General/GetSelect2SP",
@@ -89,6 +92,7 @@
                                 return {
                                     q: params.term,
                                     sp: "EXEC tAssignWorker_Worker @Startdate = '" + $(this).attr("data-Startdate") + "', @Search = '" + params.term + "'",
+                                    db: "CarService",
                                 };
                             },
                         },
@@ -96,7 +100,7 @@
                         theme: 'bootstrap4',
                         width: 'resolve'
                     });
-                    LoadInputs();
+                    $H.LoadInputs();
                 },
             })
         }

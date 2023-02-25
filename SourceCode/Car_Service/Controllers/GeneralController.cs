@@ -107,7 +107,7 @@ namespace CarService.Controllers
         }
         public ActionResult GetSelect2SP()
         {
-            List<Select2Data> results = new List<Select2Data>();
+            ArrayList results = new ArrayList();
             string val = Request.QueryString["q"];
             string sp = Request.QueryString["sp"];
             string db = Request.QueryString["db"];
@@ -129,10 +129,10 @@ namespace CarService.Controllers
                             {
                                 while (sdr.Read())
                                 {
-                                    results.Add(new Select2Data
+                                    results.Add(new
                                     {
-                                        ID = sdr["ID"].ToString(),
-                                        Text = sdr["text"].ToString(),
+                                        id = sdr["ID"].ToString(),
+                                        text = sdr["text"].ToString(),
                                     });
                                 }
                             }
@@ -159,8 +159,6 @@ namespace CarService.Controllers
 
                 return Json(new { success = false, msg = errmsg }, JsonRequestBehavior.AllowGet);
             }
-            if (!string.IsNullOrEmpty(val))//filter
-                results = results.Where(x =>x.Text.ToLower().Contains(val.ToLower())).ToList<Select2Data>();
 
             return Json(new { results }, JsonRequestBehavior.AllowGet);
         }

@@ -48,15 +48,15 @@ namespace CarService.Areas.Report.Controllers
                                 {
                                     data.Add(new MWalkIn
                                     {
-                                        ID = common.FgNullToInt(sdr["ID"]),
+                                        JODetailID = common.FgNullToInt(sdr["JODetailID"]),
                                         JONo = sdr["JONo"].ToString(),
                                         FullName = sdr["LastName"].ToString() + ", " + sdr["FirstName"].ToString() + " " + sdr["MiddleName"].ToString(),
+                                        Worker = sdr["WLastName"].ToString() + ", " + sdr["WFirstName"].ToString() + " " + sdr["WMiddleName"].ToString(),
                                         UserID = sdr["UserID"].ToString(),
                                         ServiceName = sdr["ServiceName"].ToString(),
-                                        Worker = sdr["Worker"].ToString(),
                                         Startdate = sdr["Startdate"].ToString(),
                                         Enddate = sdr["Enddate"].ToString(),
-                                        Type = sdr["Type"].ToString(),
+                                        Price = sdr["Price"].ToString(),
                                     });
                                 }
                             }

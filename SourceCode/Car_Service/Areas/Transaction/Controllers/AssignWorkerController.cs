@@ -93,7 +93,6 @@ namespace CarService.Areas.Transaction.Controllers
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ConnectionString.ToString()))
-
                 {
                     conn.Open();
                     using (SqlCommand cmdSql = conn.CreateCommand())
@@ -111,7 +110,7 @@ namespace CarService.Areas.Transaction.Controllers
                                     data.Add(new MWalkIn
                                     {
                                         ID = common.FgNullToInt(sdr["ID"]),
-                                        JODetailID = common.FgNullToInt(sdr["ID"]),
+                                        JODetailID = common.FgNullToInt(sdr["JODetailID"]),
                                         ServiceName = sdr["ServiceName"].ToString(),
                                         Startdate = common.FgNullToDateTime(sdr["Startdate"])
                                     });
@@ -149,53 +148,47 @@ namespace CarService.Areas.Transaction.Controllers
         {
             try
             {
-                #region CreateDataTable
-                DataTable dt = new DataTable();
-                dt.Columns.Add(new DataColumn("JODetailID", typeof(int)));
-                dt.Columns.Add(new DataColumn("WorkerID", typeof(int)));
-                foreach (MAssignWorker x in data)
-                {
-                    DataRow dr = dt.NewRow();
-                    dr["JODetailID"] = x.JODetailID;
-                    dr["WorkerID"] = x.WorkerID;
-                    dt.Rows.Add(dr);
-                }
-                #endregion
                 using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ToString()))
                 {
                     conn.Open();
-                    using (SqlCommand cmdSql = conn.CreateCommand())
+                    SqlTransaction transaction;
+                    transaction = conn.BeginTransaction();
+                    foreach (MAssignWorker x in data)
                     {
-                        try
+                        using (SqlCommand cmdSql = conn.CreateCommand())
                         {
-                            cmdSql.CommandType = CommandType.StoredProcedure;
-                            cmdSql.CommandText = "tCustomerJobOrder_InsertUpdate";
-                            cmdSql.Parameters.Clear();
-                            cmdSql.Parameters.AddWithValue("@CreateID", Session["WorkerID"]);
-                            SqlParameter tvpParam = cmdSql.Parameters.AddWithValue("@dt_tAssignWorker", dt);
-                            tvpParam.SqlDbType = SqlDbType.Structured;
-                            tvpParam.TypeName = "dt_tAssignWorker";
-                            SqlParameter ErrorMessage = cmdSql.Parameters.Add("@ErrorMessage", SqlDbType.VarChar, 1000);
-                            SqlParameter Error = cmdSql.Parameters.Add("@Error", SqlDbType.Bit);
+                            try
+                            {
+                                cmdSql.Transaction = transaction;
+                                cmdSql.CommandType = CommandType.StoredProcedure;
+                                cmdSql.CommandText = "tAssignWorker_InsertUpdate";
+                                cmdSql.Parameters.Clear();
+                                cmdSql.Parameters.AddWithValue("@JODetailID", x.JODetailID);
+                                cmdSql.Parameters.AddWithValue("@WorkerID", x.WorkerID);
+                                cmdSql.Parameters.AddWithValue("@CreateID", Session["WorkerID"]);
+                                SqlParameter ErrorMessage = cmdSql.Parameters.Add("@ErrorMessage", SqlDbType.VarChar, 1000);
+                                SqlParameter Error = cmdSql.Parameters.Add("@Error", SqlDbType.Bit);
 
-                            Error.Direction = ParameterDirection.Output;
-                            ErrorMessage.Direction = ParameterDirection.Output;
+                                Error.Direction = ParameterDirection.Output;
+                                ErrorMessage.Direction = ParameterDirection.Output;
 
-                            cmdSql.ExecuteNonQuery();
+                                cmdSql.ExecuteNonQuery();
 
-                            if (Convert.ToBoolean(Error.Value))
-                                ModelErrors.Add(ErrorMessage.Value.ToString());
-                        }
-                        catch (Exception err)
-                        {
-                            throw new InvalidOperationException(err.Message);
-                        }
-                        finally
-                        {
-                            cmdSql.Dispose();
-                            conn.Close();
+                                if (Convert.ToBoolean(Error.Value))
+                                {
+                                    throw new InvalidOperationException(ErrorMessage.Value.ToString());
+                                }
+                            }
+                            catch (Exception err)
+                            {
+                                transaction.Rollback();
+                                cmdSql.Dispose();
+                                conn.Close();
+                                throw new InvalidOperationException(err.Message);
+                            }
                         }
                     }
+                    transaction.Commit();
                     conn.Close();
                 }
             }

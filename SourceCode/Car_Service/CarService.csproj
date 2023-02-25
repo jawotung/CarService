@@ -269,6 +269,7 @@
     <Content Include="Areas\MasterMaintenance\Scripts\ServiceMaster.js" />
     <Content Include="Areas\MasterMaintenance\Scripts\WorkerMaster.js" />
     <Content Include="Areas\MasterMaintenance\Views\web.config" />
+    <Content Include="Areas\Report\Scripts\TransactionHistory.js" />
     <Content Include="Areas\Transaction\Scripts\OngoingService.js" />
     <Content Include="Areas\Transaction\Scripts\AssignWorker.js" />
     <Content Include="Areas\Transaction\Scripts\WalkIn.js" />

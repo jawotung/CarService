@@ -23,6 +23,7 @@ namespace CarService.Areas.Transaction.Models
         public string ServiceName { get; set; }
         public string Worker { get; set; }
         public int WorkerID { get; set; }
+        public string Price { get; set; }
 
     }
     public class MJO_Detail

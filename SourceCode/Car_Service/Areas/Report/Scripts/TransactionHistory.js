@@ -4,8 +4,8 @@
     var tblTransactionHistory = "";
     var $H = $Helper();
     $(document).ready(function () {
-        $("#StartDate").datepicker("setDate", new Date(DateMonthStart()));
-        $("#EndDate").datepicker("setDate", new Date(DateMonthEnd()));
+        $("#StartDate").datepicker("setDate", new Date($H.DateMonthStart()));
+        $("#EndDate").datepicker("setDate", new Date($H.DateMonthEnd()));
         drawDatatables();
 
         $('#tblTransactionHistory tbody').on('click', 'tr', function (e) {
@@ -49,7 +49,7 @@
                 searching: false,
                 "pageLength": 25,
                 "ajax": {
-                    "url": "/Transaction/TransactionHistoryService/GetTransactionHistoryServiceList",
+                    "url": "/Report/TransactionHistory/GetTransactionHistoryList",
                     "type": "GET",
                     "datatype": "json",
                     "data": function (d) {
@@ -65,13 +65,9 @@
                     { title: "Customer FullName", data: 'FullName' },
                     { title: "Worker", data: 'Worker' },
                     { title: "Service", data: 'ServiceName' },
+                    { title: "Price", data: 'Price' },
                     { title: "Startdate", data: 'Startdate' },
-                    { title: "Estemate Enddate", data: 'Enddate' },
-                    {
-                        title: "", data: function (data) {
-                            return '<button type="button" class="btn btn-sm btn-green btn-block btnCompleted">Completed</button>'
-                        }
-                    },
+                    { title: "Enddate", data: 'Enddate' },
                 ],
             })
         }

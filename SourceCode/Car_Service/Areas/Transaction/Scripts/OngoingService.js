@@ -39,12 +39,12 @@
             tblOngoing.ajax.reload(null, false);
         });
         $("#tblOngoing").on("click", ".btnCompleted", function () {
-            var data = tblPicking.row($(this).parents('tr')).data();
+            var data = tblOngoing.row($(this).parents('tr')).data();
             ajax.msg = "Are you sure this service is completed?";
             ajax.confirmAction().then(function (approve) {
                 if (approve) {
                     ajax.formAction = '/Transaction/OngoingService/CompleteService';
-                    ajax.jsonData = { ID: data.ID };
+                    ajax.jsonData = { ID: data.JODetailID };
                     ajax.sendData().then(function () {
                         tblOngoing.ajax.reload(null, false);
                     });
@@ -71,7 +71,7 @@
                     { title: "UserID", data: 'UserID' },
                     { title: "Customer FullName", data: 'FullName' },
                     { title: "Worker", data: 'Worker' },
-                    { title: "Service", data: 'ServiceName' },
+                    { title: "Service", data: 'ServiceName', className:"font-weight-bold" },
                     { title: "Startdate", data: 'Startdate' },
                     { title: "Estemate Enddate", data: 'Enddate' },
                     {

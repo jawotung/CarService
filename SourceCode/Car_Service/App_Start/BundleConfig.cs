@@ -215,7 +215,7 @@ namespace CarService
                     .Include(DataTblJS)
                     .Include(TrxJS)
                     .Include(
-                        "~/Areas/Transaction/Scripts/TransactionHistory.js"
+                        "~/Areas/Report/Scripts/TransactionHistory.js"
                     )
             );
         }
