@@ -4,6 +4,7 @@ namespace CarService.Areas.Transaction.Models
 {
     public class MWalkIn
     {
+        public int Row_Num { get; set; }
         public int ID { get; set; }
         public int JODetailID { get; set; }
         public string JONo { get; set; }
@@ -24,7 +25,7 @@ namespace CarService.Areas.Transaction.Models
         public string Worker { get; set; }
         public int WorkerID { get; set; }
         public string Price { get; set; }
-
+        public string CreateDate { get; set; }
     }
     public class MJO_Detail
     {

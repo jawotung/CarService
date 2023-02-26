@@ -51,7 +51,8 @@ namespace CarServiceSystem.Controllers
                             cmdSql.CommandText = "cWorker_Login";
                             cmdSql.Parameters.Clear();
                             cmdSql.Parameters.AddWithValue("@WorkerID", data.WorkerID);
-                            cmdSql.Parameters.AddWithValue("@Password", ph.Base64Encode(data.Password.ToString()));
+                            //cmdSql.Parameters.AddWithValue("@Password", ph.Base64Encode(data.Password.ToString()));
+                            cmdSql.Parameters.AddWithValue("@Password", data.Password);
                             using (SqlDataReader sdr = cmdSql.ExecuteReader())
                             {
                                 if (sdr.Read())

@@ -23,16 +23,8 @@ namespace CarServiceSystem.Controllers
 
         public ActionResult Index()
         {
-            if (Session["WorkerID"] != null)
-            {
-                return RedirectToAction("Index", "Dashboard", new { area = "Dashboard" });
-            }
-            else
-            {
-                return View();
-            }
+            return View();
         }
-
         public ActionResult GetCustomerPageInfo()
         {
             List<string> objServicesPhoto = new List<string>();
@@ -49,7 +41,8 @@ namespace CarServiceSystem.Controllers
 
                 return Json(new { success = true, data = objServicesPhoto }, JsonRequestBehavior.AllowGet);
 
-            } catch (Exception err)
+            }
+            catch (Exception err)
             {
                 string errmsg;
                 if (err.InnerException != null)
@@ -60,7 +53,55 @@ namespace CarServiceSystem.Controllers
                 return Json(new { success = false, errors = errmsg }, JsonRequestBehavior.AllowGet);
             }
         }
+        public ActionResult GetCustomerDetails(int ID)
+        {
+            OnlineJobOrder objGetCustomerDetails = new OnlineJobOrder();
 
+            try
+            {
+                using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ConnectionString.ToString()))
+
+                {
+                    myConnection.Open();
+                    using (SqlCommand myCommand = myConnection.CreateCommand())
+                    {
+                        myCommand.CommandType = CommandType.StoredProcedure;
+                        myCommand.CommandText = "cCustomer_Login";
+
+                        myCommand.Parameters.AddWithValue("@ID", ID);
+
+                        using (SqlDataReader myReader = myCommand.ExecuteReader())
+                        {
+                            while (myReader.Read())
+                            {
+                                objGetCustomerDetails.ID = common.FgNullToInt(myReader["ID"]);
+                                objGetCustomerDetails.UserID = common.FgNullToString(myReader["UserID"]);
+                                objGetCustomerDetails.Password = common.FgNullToString(myReader["Password"]);
+                                objGetCustomerDetails.FirstName = common.FgNullToString(myReader["FirstName"]);
+                                objGetCustomerDetails.MiddleName = common.FgNullToString(myReader["MiddleName"]);
+                                objGetCustomerDetails.LastName = common.FgNullToString(myReader["LastName"]);
+                                objGetCustomerDetails.ContactNo = common.FgNullToString(myReader["ContactNo"]);
+                                objGetCustomerDetails.EmailAddress = common.FgNullToString(myReader["EmailAddress"]);
+                            }
+                        }
+                    }
+                    myConnection.Close();
+                }
+
+                return Json(new { success = true, data = objGetCustomerDetails }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception err)
+            {
+                string errmsg;
+                if (err.InnerException != null)
+                    errmsg = "An error occured: " + err.InnerException.ToString();
+                else
+                    errmsg = "An error occured: " + err.Message.ToString();
+
+                return Json(new { success = false, msg = errmsg }, JsonRequestBehavior.AllowGet);
+            };
+        }
         public ActionResult GetServices()
         {
             List<MService> objServiceList = new List<MService>();
@@ -111,11 +152,129 @@ namespace CarServiceSystem.Controllers
                 return Json(new { success = false, msg = errmsg }, JsonRequestBehavior.AllowGet);
             };
         }
-
-        public ActionResult SaveOnlineJobOrder(OnlineJobOrder HeaderData, List<MJO_Detail> ServiceDetail)
+        public ActionResult GetJobOrderListByUserID()
         {
+            int ID = Convert.ToInt16(Request["ID"]);
+            List<MWalkIn> objJOList = new List<MWalkIn>();
+
+            try
+            {
+                using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ConnectionString.ToString()))
+
+                {
+                    myConnection.Open();
+                    using (SqlCommand myCommand = myConnection.CreateCommand())
+                    {
+                        myCommand.CommandType = CommandType.StoredProcedure;
+                        myCommand.CommandText = "tCustomerJobOrder_GetList";
+
+                        myCommand.Parameters.AddWithValue("@UserID", ID);
+
+                        using (SqlDataReader myReader = myCommand.ExecuteReader())
+                        {
+                            while (myReader.Read())
+                            {
+                                objJOList.Add(new MWalkIn
+                                {
+                                    Row_Num = Convert.ToInt32(myReader["Row_Num"]),
+                                    JONo = myReader["JONo"].ToString(),
+                                    Startdate = Convert.ToDateTime(myReader["Startdate"]).ToString("yyyy/MM/dd"),
+                                    ServiceName = myReader["ServiceName"].ToString(),
+                                    Remarks = myReader["Remarks"].ToString(),
+                                    CreateDate = Convert.ToDateTime(myReader["CreateDate"]).ToString("yyyy/MM/dd"),
+                                });
+                            }
+                        }
+                    }
+                    myConnection.Close();
+                }
+
+                return Json(new { success = true, data = objJOList }, JsonRequestBehavior.AllowGet);
+
+            }
+            catch (Exception err)
+            {
+                string errmsg;
+                if (err.InnerException != null)
+                    errmsg = "An error occured: " + err.InnerException.ToString();
+                else
+                    errmsg = "An error occured: " + err.Message.ToString();
+
+                return Json(new { success = false, msg = errmsg }, JsonRequestBehavior.AllowGet);
+            };
+        }
+        public ActionResult LoginMeIn(CustomerLogin data)
+        {
+            string errmsg = "Invalid UserID or Password. Please try again.";
+
+            try
+            {
+                Security ph = new Security();
+                DataHelper dataHelper = new DataHelper();
+
+                using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ConnectionString.ToString()))
+                {
+                    myConnection.Open();
+                    using (SqlCommand myCommand = myConnection.CreateCommand())
+                    {
+                        myCommand.CommandType = CommandType.StoredProcedure;
+                        myCommand.CommandText = "cCustomer_Login";
+
+                        myCommand.Parameters.Clear();
+                        myCommand.Parameters.AddWithValue("@LoginUserID", data.LoginUserID);
+                        myCommand.Parameters.AddWithValue("@LoginPassword", data.LoginPassword.ToString());
+
+                        using (SqlDataReader sdr = myCommand.ExecuteReader())
+                        {
+                            if (sdr.Read())
+                            {
+                                if (common.FgNullToInt(sdr["isDeleted"]) == 1)
+                                {
+                                    errmsg = "Deleted user. Please contact your admin or IT support";
+                                }
+                                else
+                                {
+                                    Session["CustomerID"] = Convert.ToInt32(sdr["ID"]);
+                                    Session["CustomerUserID"] = sdr["UserID"].ToString();
+                                    Session["FirstName"] = sdr["FirstName"].ToString();
+                                    Session["LastName"] = sdr["LastName"].ToString();
+                                    Session["FullName"] = sdr["FirstName"].ToString() + " " + sdr["LastName"].ToString();
+                                    Session["LastName"] = sdr["LastName"].ToString();
+
+                                    errmsg = "";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception err)
+            {
+                if (err.InnerException != null)
+                    errmsg = "Error: " + err.InnerException.ToString();
+                else
+                    errmsg = "Error: " + err.Message.ToString();
+            }
+            if (!String.IsNullOrEmpty(errmsg))
+                return Json(new { success = true, data = new { error = true, errmsg } });
+            else
+            {
+                return Json(new { success = true, data = new { error = false } });
+            }
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
+        public ActionResult SaveOnlineJobOrder(OnlineJobOrder HeaderData, List<MJO_Detail> ServiceDetail, int IsNewCustomer)
+        {
+            string strCheckOtherSchedule = "";
+            string strServiceID = "";
+            int iDtCount = 0;
+
             int iType = 1; // Default as Online Job Order Type
-            int iIsNewCustomer = 1; // Default as New Customer
 
             try
             {
@@ -130,8 +289,26 @@ namespace CarServiceSystem.Controllers
                     dr["ServiceID"] = x.ServiceID;
                     dr["Price"] = common.FgNullToString(x.Price);
                     dt.Rows.Add(dr);
+
+                    if (iDtCount == 0)
+                        strServiceID += x.ServiceID.ToString();
+                    else
+                        strServiceID += "," + x.ServiceID.ToString();
+                    iDtCount = iDtCount + 1;
                 }
                 #endregion
+
+                // Check other schedule
+                strCheckOtherSchedule = CheckOtherSchedule(HeaderData.Startdate, strServiceID);
+                if (strCheckOtherSchedule != "")
+                {
+                    string[] strScheduledServices = strCheckOtherSchedule.Split(',');
+                    foreach(string x in strScheduledServices)
+                    {
+                        ModelErrors.Add("Cannot schedule " + x + " due to conflict schedule.");
+                    }
+                    return Json(new { success = false, errors = ModelErrors });
+                }
 
                 using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ToString()))
                 {
@@ -142,7 +319,7 @@ namespace CarServiceSystem.Controllers
                         myCommand.CommandText = "tCustomerJobOrder_InsertUpdate";
 
                         myCommand.Parameters.Clear();
-                        myCommand.Parameters.AddWithValue("@IsNewCustomer", iIsNewCustomer);
+                        myCommand.Parameters.AddWithValue("@IsNewCustomer", IsNewCustomer);
                         myCommand.Parameters.AddWithValue("@UserID", common.FgNullToString(HeaderData.UserID));
                         myCommand.Parameters.AddWithValue("@Password", common.FgNullToString(HeaderData.Password));
                         myCommand.Parameters.AddWithValue("@FirstName", common.FgNullToString(HeaderData.FirstName));
@@ -153,6 +330,7 @@ namespace CarServiceSystem.Controllers
                         myCommand.Parameters.AddWithValue("@Type", iType);
                         myCommand.Parameters.AddWithValue("@Startdate", common.FgNullToString(HeaderData.Startdate));
                         myCommand.Parameters.AddWithValue("@Remarks", common.FgNullToString(HeaderData.Remarks));
+                        myCommand.Parameters.AddWithValue("@CreateID", common.FgNullToZero(Session["CustomerID"]));
 
                         SqlParameter tvpParam = myCommand.Parameters.AddWithValue("@dt_tCustomerJobOrder_Detail", dt);
                         tvpParam.SqlDbType = SqlDbType.Structured;
@@ -189,6 +367,47 @@ namespace CarServiceSystem.Controllers
             {
                 return Json(new { success = true, msg = "Worker was successfully saved" });
             }
+        }
+
+        private string CheckOtherSchedule(string Startdate, string ServiceID)
+        {
+            bool bError = false;
+            string strErrorMessage = "";
+
+            try
+            {
+                using (SqlConnection myConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["CarService"].ConnectionString.ToString()))
+
+                {
+                    myConnection.Open();
+                    using (SqlCommand myCommand = myConnection.CreateCommand())
+                    {
+                        myCommand.CommandType = CommandType.StoredProcedure;
+                        myCommand.CommandText = "tCustomerJobOrder_CheckOtherSchedule";
+
+                        myCommand.Parameters.Clear();
+                        myCommand.Parameters.AddWithValue("@Startdate", Startdate);
+                        myCommand.Parameters.AddWithValue("@ServiceID", ServiceID);
+
+                        using (SqlDataReader myReader = myCommand.ExecuteReader())
+                        {
+                            while (myReader.Read())
+                            {
+                                bError = Convert.ToBoolean(myReader["Error"]);
+                                strErrorMessage = myReader["ErrorMessage"].ToString();
+                            }
+                        }
+                    }
+                    myConnection.Close();
+                }
+
+                return strErrorMessage;
+
+            }
+            catch (Exception err)
+            {
+                throw err;
+            };
         }
     }
 }

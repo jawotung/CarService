@@ -10,4 +10,10 @@ namespace CarService.Models
         public string WorkerID { get; set; }
         public string Password { get; set; }
     }
+
+    public class CustomerLogin
+    {
+        public string LoginUserID { get; set; }
+        public string LoginPassword { get; set; }
+    }
 }
